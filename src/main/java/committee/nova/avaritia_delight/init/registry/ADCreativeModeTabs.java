@@ -11,7 +11,7 @@ import net.neoforged.neoforge.registries.DeferredRegister;
 public class ADCreativeModeTabs {
     public static final DeferredRegister<CreativeModeTab> TABS = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, AvaritiaDelight.MOD_ID);
 
-    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = TABS.register("expand_group", () -> CreativeModeTab.builder()
+    public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = TABS.register("delight_group", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tab.avaritia_delight"))
             .icon(ADItems.infinity_knife.get()::getDefaultInstance)
             .displayItems((parameters, output) -> {
@@ -20,6 +20,14 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.neutronium_knife.get());
                 output.accept(ADItems.infinity_knife.get());
                 output.accept(ADItems.blaze_tomato.get());
+                output.accept(ADItems.diamond_lattice_fries.get());
+                output.accept(ADItems.crystal_cabbage_leaf.get());
+                output.accept(ADItems.crystal_cabbage.get());
+                output.accept(ADItems.raw_crystal_pasta.get());
+                output.accept(ADItems.neutronium_wheat.get());
+                output.accept(ADItems.neutronium_bread.get());
+                output.accept(ADItems.cosmic_beef.get());
+                output.accept(ADItems.cosmic_beef_cooked.get());
             }).build());
     public static void register(IEventBus bus){
         TABS.register(bus);

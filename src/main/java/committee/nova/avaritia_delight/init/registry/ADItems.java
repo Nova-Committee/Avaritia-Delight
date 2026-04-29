@@ -2,15 +2,12 @@ package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.item.tool.AvaritiaKnifeItem;
-import committee.nova.mods.avaritia.init.registry.ModRarities;
 import committee.nova.mods.avaritia.init.registry.ModToolTiers;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
-import vectorwing.farmersdelight.common.item.KnifeItem;
 
 public class ADItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AvaritiaDelight.MOD_ID);
@@ -25,7 +22,27 @@ public class ADItems {
             ()-> new AvaritiaKnifeItem(Tiers.GOLD, new Item.Properties().fireResistant().attributes(AvaritiaKnifeItem.createAttributes(ModToolTiers.INFINITY, -50, 0))));
 
     public static DeferredItem<Item> blaze_tomato = ITEMS.register("blaze_tomato",
-            ()-> new Item(new Item.Properties().fireResistant().food(ADFoods.BLAZE_TOMATO)));
+            ()-> new Item(new Item.Properties().fireResistant().food(ADFoods.LITTLE_FOOD)));
+
+    public static DeferredItem<Item> diamond_lattice_fries = ITEMS.register("diamond_lattice_fries",
+            ()-> new Item(new Item.Properties().food(ADFoods.LITTLE_FOOD)));
+
+    public static DeferredItem<Item> crystal_cabbage_leaf = ITEMS.register("crystal_cabbage_leaf",
+            ()-> new Item(new Item.Properties().food(ADFoods.LITTLE_FOOD_FAST)));
+    public static DeferredItem<Item> crystal_cabbage = ITEMS.register("crystal_cabbage",
+            ()-> new Item(new Item.Properties().food(ADFoods.LITTLE_FOOD)));
+    public static DeferredItem<Item> raw_crystal_pasta = ITEMS.register("raw_crystal_pasta",
+            ()-> new Item(new Item.Properties().food(ADFoods.LITTLE_FOOD_FAST)));
+
+    public static DeferredItem<Item> neutronium_wheat = ITEMS.register("neutronium_wheat",
+            ()-> new Item(new Item.Properties()));
+    public static DeferredItem<Item> neutronium_bread = ITEMS.register("neutronium_bread",
+            ()-> new Item(new Item.Properties().food(ADFoods.FAT_FOOD)));
+
+    public static DeferredItem<Item> cosmic_beef = ITEMS.register("cosmic_beef",
+            ()-> new Item(new Item.Properties().food(ADFoods.LITTLE_FOOD_FAST)));
+    public static DeferredItem<Item> cosmic_beef_cooked = ITEMS.register("cosmic_beef_cooked",
+            ()-> new Item(new Item.Properties().food(ADFoods.NORMAL_FOOD_FAST)));
 
 
     public static void register(IEventBus bus){
