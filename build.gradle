@@ -18,6 +18,8 @@ repositories {
 
 dependencies {
     implementation "curse.maven:re-avaritia-623969:7781163"
+    implementation "curse.maven:farmers-delight-398521:8007613"
+    implementation "curse.maven:jei-238222:7420587"
 }
 
 

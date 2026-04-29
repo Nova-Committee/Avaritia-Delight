@@ -1,3 +1,9 @@
 {
+  "itemGroup.tab.avaritia_delight": "Avaritia's Delight",
 
+  "item.avaritia_delight.blaze_knife": "Blaze Knife",
+  "item.avaritia_delight.crystal_knife": "Crystal Matrix Knife",
+  "item.avaritia_delight.neutronium_knife": "Neutronium Knife",
+  "item.avaritia_delight.infinity_knife": "Infinity Knife",
+  "item.avaritia_delight.blaze_tomato": "Blaze Tomato"
 }
