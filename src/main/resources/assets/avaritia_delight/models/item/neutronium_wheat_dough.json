@@ -1,7 +1,7 @@
 {
-  "parent": "minecraft:item/handheld",
+  "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "avaritia_delight:item/neutronium/neutronium_knife",
+    "layer0": "avaritia_delight:item/neutronium/neutronium_wheat_dough",
     "halo": "avaritia:misc/halo_noise"
   },
   "loader": "avaritia:halo",

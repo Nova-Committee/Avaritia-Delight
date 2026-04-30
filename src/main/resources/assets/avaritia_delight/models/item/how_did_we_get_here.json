@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "avaritia_delight:item/infinity/how_did_we_get_here"
+  }
+}

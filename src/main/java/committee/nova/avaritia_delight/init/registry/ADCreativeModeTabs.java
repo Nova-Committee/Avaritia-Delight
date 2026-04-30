@@ -19,15 +19,24 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.crystal_knife.get());
                 output.accept(ADItems.neutronium_knife.get());
                 output.accept(ADItems.infinity_knife.get());
+                output.accept(ADItems.blaze_tomato_seeds.get());
                 output.accept(ADItems.blaze_tomato.get());
+                output.accept(ADItems.diamond_lattice_potato.get());
                 output.accept(ADItems.diamond_lattice_fries.get());
-                output.accept(ADItems.crystal_cabbage_leaf.get());
+                output.accept(ADItems.crystal_cabbage_seeds.get());
                 output.accept(ADItems.crystal_cabbage.get());
+                output.accept(ADItems.crystal_cabbage_leaf.get());
                 output.accept(ADItems.raw_crystal_pasta.get());
+                output.accept(ADItems.neutronium_wheat_seeds.get());
                 output.accept(ADItems.neutronium_wheat.get());
+                output.accept(ADItems.neutronium_wheat_dough.get());
                 output.accept(ADItems.neutronium_bread.get());
                 output.accept(ADItems.cosmic_beef.get());
                 output.accept(ADItems.cosmic_beef_cooked.get());
+                output.accept(ADItems.infinity_apple.get());
+                output.accept(ADItems.furious_cocktail.get());
+                output.accept(ADItems.how_did_we_get_here.get());
+                output.accept(ADItems.infinity_milk.get());
             }).build());
     public static void register(IEventBus bus){
         TABS.register(bus);

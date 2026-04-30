@@ -1,6 +1,6 @@
 {
   "parent": "minecraft:item/generated",
   "textures": {
-    "layer0": "avaritia_delight:item/diamond_lattice_fries"
+    "layer0": "avaritia_delight:item/diamond_lattice/diamond_lattice_fries"
   }
 }
