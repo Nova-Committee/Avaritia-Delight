@@ -2,6 +2,7 @@ package committee.nova.avaritia_delight.init.data.provider;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.init.registry.ADItems;
+import committee.nova.avaritia_delight.init.registry.ADTags;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
@@ -32,5 +33,6 @@ public class ADItemTags extends IntrinsicHolderTagsProvider<Item> {
         tag(ModTags.Items.KNIVES).add(ADItems.neutronium_knife.get());
         tag(ModTags.Items.KNIVES).add(ADItems.infinity_knife.get());
         tag(committee.nova.mods.avaritia.init.registry.ModTags.IMMORTAL_ITEM).add(ADItems.infinity_knife.get());
+        tag(ADTags.LONG_TIME_COOK).add(ADItems.cosmic_beef.get());
     }
 }

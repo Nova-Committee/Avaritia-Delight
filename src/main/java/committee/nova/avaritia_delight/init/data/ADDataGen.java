@@ -1,7 +1,9 @@
 package committee.nova.avaritia_delight.init.data;
 
 
+import committee.nova.avaritia_delight.init.data.provider.ADBlockTags;
 import committee.nova.avaritia_delight.init.data.provider.ADItemTags;
+import committee.nova.avaritia_delight.init.data.provider.loot.ADLootTables;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -24,7 +26,9 @@ public class ADDataGen {
 
         }
         if (event.includeServer()) {
+            generator.addProvider(true, new ADLootTables(output, lookupProvider));
             generator.addProvider(true, new ADItemTags(output, lookupProvider, helper));
+            generator.addProvider(true, new ADBlockTags(output, lookupProvider, helper));
         }
     }
 }

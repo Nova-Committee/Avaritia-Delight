@@ -37,6 +37,7 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.furious_cocktail.get());
                 output.accept(ADItems.how_did_we_get_here.get());
                 output.accept(ADItems.infinity_milk.get());
+                output.accept(ADBlocks.extreme_stove.get());
             }).build());
     public static void register(IEventBus bus){
         TABS.register(bus);

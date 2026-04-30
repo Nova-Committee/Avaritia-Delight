@@ -1,9 +1,10 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "committee.nova.avaritia_delight.mixin",
+  "package": "committee.nova.avaritia_delight.init.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "StoveAccessor"
   ],
   "client": [
   ],
