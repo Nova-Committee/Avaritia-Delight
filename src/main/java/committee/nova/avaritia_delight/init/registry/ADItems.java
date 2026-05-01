@@ -1,6 +1,9 @@
 package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
+import committee.nova.avaritia_delight.common.item.food.FuriousCocktailItem;
+import committee.nova.avaritia_delight.common.item.food.HowDidWeGetHereItem;
+import committee.nova.avaritia_delight.common.item.food.InfinityMilkItem;
 import committee.nova.avaritia_delight.common.item.tool.AvaritiaKnifeItem;
 import committee.nova.avaritia_delight.common.item.tool.InfinityKnifeItem;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
@@ -51,13 +54,13 @@ public class ADItems {
             ()-> new Item(new Item.Properties().rarity(ModRarities.UNCOMMON)));
 
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
-            ()-> new Item(new Item.Properties().fireResistant().rarity(ModRarities.COSMIC.getValue())));
+            ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue())));
     public static DeferredItem<Item> furious_cocktail = ITEMS.register("furious_cocktail",
-            ()-> new Item(new Item.Properties().fireResistant().rarity(ModRarities.COSMIC.getValue())));
+            FuriousCocktailItem::new);
     public static DeferredItem<Item> how_did_we_get_here = ITEMS.register("how_did_we_get_here",
-            ()-> new Item(new Item.Properties().fireResistant().rarity(ModRarities.COSMIC.getValue())));
+            HowDidWeGetHereItem::new);
     public static DeferredItem<Item> infinity_milk = ITEMS.register("infinity_milk",
-            ()-> new Item(new Item.Properties().fireResistant().rarity(ModRarities.COSMIC.getValue())));
+            InfinityMilkItem::new);
 
     public static DeferredItem<Item> blaze_tomato_seeds = ITEMS.register("blaze_tomato_seeds",
             ()-> new Item(new Item.Properties().fireResistant()));
