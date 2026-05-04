@@ -38,6 +38,8 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.furious_cocktail.get());
                 output.accept(ADItems.how_did_we_get_here.get());
                 output.accept(ADItems.infinity_milk.get());
+                output.accept(ADItems.neutronium_bowl.get());
+                output.accept(ADItems.neutronium_pot.get());
                 output.accept(ADBlocks.extreme_stove.get());
                 output.accept(ADBlocks.extreme_cooking_pot.get());
             }).build());

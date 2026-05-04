@@ -55,7 +55,6 @@ import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 import vectorwing.farmersdelight.common.registry.*;
 import vectorwing.farmersdelight.common.utility.ItemUtils;
-import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -209,7 +208,7 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
     }
 
     public ItemStack getAsItem() {
-        ItemStack stack = new ItemStack(ModItems.COOKING_POT.get());
+        ItemStack stack = new ItemStack(ADBlocks.extreme_cooking_pot.get());
         stack.applyComponents(collectComponents());
         return stack;
     }

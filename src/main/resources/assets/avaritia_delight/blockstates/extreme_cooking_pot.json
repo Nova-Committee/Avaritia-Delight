@@ -1,13 +1,49 @@
 {
   "variants": {
-    "support=none": {
-      "model": "avaritia_delight:block/extreme_cooking_pot"
+    "facing=east,support=handle": {
+      "model": "avaritia_delight:block/extreme_cooking_pot_handle",
+      "y": 90
     },
-    "support=handle": {
+    "facing=east,support=none": {
+      "model": "avaritia_delight:block/extreme_cooking_pot",
+      "y": 90
+    },
+    "facing=east,support=tray": {
+      "model": "avaritia_delight:block/extreme_cooking_pot_tray",
+      "y": 90
+    },
+    "facing=north,support=handle": {
       "model": "avaritia_delight:block/extreme_cooking_pot_handle"
     },
-    "support=tray": {
+    "facing=north,support=none": {
+      "model": "avaritia_delight:block/extreme_cooking_pot"
+    },
+    "facing=north,support=tray": {
       "model": "avaritia_delight:block/extreme_cooking_pot_tray"
+    },
+    "facing=south,support=handle": {
+      "model": "avaritia_delight:block/extreme_cooking_pot_handle",
+      "y": 180
+    },
+    "facing=south,support=none": {
+      "model": "avaritia_delight:block/extreme_cooking_pot",
+      "y": 180
+    },
+    "facing=south,support=tray": {
+      "model": "avaritia_delight:block/extreme_cooking_pot_tray",
+      "y": 180
+    },
+    "facing=west,support=handle": {
+      "model": "avaritia_delight:block/extreme_cooking_pot_handle",
+      "y": 270
+    },
+    "facing=west,support=none": {
+      "model": "avaritia_delight:block/extreme_cooking_pot",
+      "y": 270
+    },
+    "facing=west,support=tray": {
+      "model": "avaritia_delight:block/extreme_cooking_pot_tray",
+      "y": 270
     }
   }
 }
