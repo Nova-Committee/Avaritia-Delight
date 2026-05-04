@@ -3,6 +3,7 @@ package committee.nova.avaritia_delight.client.screen;
 import com.mojang.blaze3d.systems.RenderSystem;
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.menu.ExtremeCookingPotMenu;
+import committee.nova.avaritia_delight.init.registry.ADBlocks;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -11,6 +12,7 @@ import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.item.ItemStack;
+import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import javax.annotation.ParametersAreNonnullByDefault;
@@ -36,7 +38,7 @@ public class ExtremeCookingPotScreen extends AbstractContainerScreen<ExtremeCook
     @Override
     protected void init() {
         super.init();
-        this.titleLabelX = (this.imageWidth - this.font.width(this.title)) / 2;
+        this.titleLabelX = ((this.imageWidth - this.font.width(this.title)) / 2)-85;
         this.titleLabelY = 6;
     }
 
@@ -59,6 +61,7 @@ public class ExtremeCookingPotScreen extends AbstractContainerScreen<ExtremeCook
             gui.renderTooltip(this.font, TextUtils.getTranslation(key), mouseX, mouseY);
         }
     }
+
 
     protected void renderMealDisplayTooltip(GuiGraphics gui, int mouseX, int mouseY) {
         if (this.minecraft != null && this.minecraft.player != null && this.menu.getCarried().isEmpty()) {

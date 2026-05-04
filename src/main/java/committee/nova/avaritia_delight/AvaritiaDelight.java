@@ -1,5 +1,6 @@
 package committee.nova.avaritia_delight;
 
+import committee.nova.avaritia_delight.init.data.provider.ADRecipeSerializers;
 import committee.nova.avaritia_delight.init.registry.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
@@ -17,6 +18,8 @@ public class AvaritiaDelight {
         ADBlockEntities.register(modEventBus);
         ADCreativeModeTabs.register(modEventBus);
         ADMenus.register(modEventBus);
+        ADRecipeTypes.register(modEventBus);
+        ADRecipeSerializers.register(modEventBus);
     }
 
 }

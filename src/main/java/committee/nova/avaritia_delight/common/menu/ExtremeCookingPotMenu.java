@@ -61,7 +61,7 @@ public class ExtremeCookingPotMenu extends AbstractContainerMenu
             }
         }
 
-        this.addSlot(new CookingPotMealSlot(inventory, INDEX_MEAL, 206, 92));
+        this.addSlot(new CookingPotMealSlot(inventory, INDEX_MEAL, 206, 90));
         this.addSlot(new SlotItemHandler(inventory, INDEX_CONTAINER, 174, 125));
         this.addSlot(new ExtremeCookingPotResultSlot(playerInventory.player, blockEntity, inventory, INDEX_OUTPUT, 206, 125));
 

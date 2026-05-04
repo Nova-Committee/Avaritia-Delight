@@ -1,0 +1,27 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "A": {
+      "item": "minecraft:experience_bottle"
+    },
+    "C": {
+      "item": "minecraft:nether_star"
+    }
+  },
+  "pattern": [
+    "         ",
+    "         ",
+    "   AAA   ",
+    "  AAAAA  ",
+    "  AAAAA  ",
+    " AAAAAAA ",
+    " AAACAAA ",
+    " AAAAAAA ",
+    "  AAAAA  "
+  ],
+  "result": {
+    "count": 16,
+    "id": "avaritia_delight:experience_jelly"
+  },
+  "tier": 4
+}

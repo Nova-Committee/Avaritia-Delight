@@ -5,6 +5,7 @@ import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.block.ExtremeCookingPotBlock;
 import committee.nova.avaritia_delight.common.menu.ExtremeCookingPotMenu;
 import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
+import committee.nova.avaritia_delight.init.registry.ADBlocks;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
@@ -464,7 +465,7 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
 
     @Override
     public Component getName() {
-        return customName != null ? customName : TextUtils.container("cooking_pot");
+        return ADBlocks.extreme_cooking_pot.get().getName();
     }
 
     @Override

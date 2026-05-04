@@ -26,7 +26,10 @@
   "item.avaritia_delight.infinity_milk": "绝净之乳",
 
   "block.avaritia_delight.extreme_stove": "终焉炉灶",
+  "block.avaritia_delight.extreme_cooking_pot": "终焉厨锅",
 
   "farmersdelight.container.extreme_cooking_pot.not_heated": "下方需要热源",
-  "farmersdelight.container.extreme_cooking_pot.heated": "已受热"
+  "farmersdelight.container.extreme_cooking_pot.heated": "已受热",
+
+  "jei.farmersdelight.extreme_cooking": "终焉烹饪"
 }

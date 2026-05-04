@@ -9,6 +9,7 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
@@ -27,19 +28,16 @@ public class ExperienceJellyItem extends Item {
     }
 
     @Override
-    public @NotNull ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity entity) {
-        if (entity instanceof Player player) {
+    public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
+        if (livingEntity instanceof Player player) {
             if (player instanceof ServerPlayer serverPlayer) {
-                int i = this.repairPlayerItems(serverPlayer, 500);
+                int i = this.repairPlayerItems(serverPlayer, 50);
                 if (i > 0) {
                     player.giveExperiencePoints(i);
                 }
-                player.addEffect(new MobEffectInstance(MobEffects.DIG_SPEED, Integer.MAX_VALUE, 1));
-                CriteriaTriggers.CONSUME_ITEM.trigger(serverPlayer, stack);
-                serverPlayer.awardStat(Stats.ITEM_USED.get(this));
             }
         }
-        return stack;
+        return super.finishUsingItem(stack, level, livingEntity);
     }
 
     private int repairPlayerItems(ServerPlayer player, int value) {

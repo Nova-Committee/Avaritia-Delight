@@ -9,6 +9,7 @@ import committee.nova.avaritia_delight.common.item.tool.AvaritiaKnifeItem;
 import committee.nova.avaritia_delight.common.item.tool.InfinityKnifeItem;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
 import committee.nova.mods.avaritia.init.registry.ModToolTiers;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
@@ -64,7 +65,7 @@ public class ADItems {
             InfinityMilkItem::new);
 
     public static DeferredItem<Item> experience_jelly = ITEMS.register("experience_jelly",
-            ()-> new ExperienceJellyItem(new Item.Properties().rarity(ADRarities.FUNCTION.getValue())));
+            ()-> new ExperienceJellyItem(new Item.Properties().rarity(ADRarities.FUNCTION.getValue()).food(ADFoods.EXPERIENCE_JELLY)));
 
 
     public static DeferredItem<Item> blaze_tomato_seeds = ITEMS.register("blaze_tomato_seeds",
@@ -72,6 +73,11 @@ public class ADItems {
     public static DeferredItem<Item> neutronium_wheat_seeds = ITEMS.register("neutronium_wheat_seeds",
             ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static DeferredItem<Item> crystal_cabbage_seeds = ITEMS.register("crystal_cabbage_seeds",
+            ()-> new Item(new Item.Properties()));
+
+    public static DeferredItem<Item> neutronium_pot = ITEMS.register("neutronium_pot",
+            ()-> new Item(new Item.Properties()));
+    public static DeferredItem<Item> neutronium_bowl = ITEMS.register("neutronium_bowl",
             ()-> new Item(new Item.Properties()));
 
 

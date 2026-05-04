@@ -26,7 +26,10 @@
   "item.avaritia_delight.infinity_milk": "Infinity Milk",
 
   "block.avaritia_delight.extreme_stove": "Extreme Stove",
+  "block.avaritia_delight.extreme_cooking_pot": "Extreme Cooking Pot",
 
   "farmersdelight.container.extreme_cooking_pot.not_heated": "Needs heat from below",
-  "farmersdelight.container.extreme_cooking_pot.heated": "Heated"
+  "farmersdelight.container.extreme_cooking_pot.heated": "Heated",
+
+  "jei.farmersdelight.extreme_cooking": "Extreme Cooking"
 }
