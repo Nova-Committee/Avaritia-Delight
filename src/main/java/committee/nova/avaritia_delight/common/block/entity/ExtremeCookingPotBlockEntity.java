@@ -3,9 +3,11 @@ package committee.nova.avaritia_delight.common.block.entity;
 import com.google.common.collect.Lists;
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.block.ExtremeCookingPotBlock;
+import committee.nova.avaritia_delight.common.crafting.recipe.ExtremeCookingPotRecipe;
 import committee.nova.avaritia_delight.common.menu.ExtremeCookingPotMenu;
 import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
 import committee.nova.avaritia_delight.init.registry.ADBlocks;
+import committee.nova.avaritia_delight.init.registry.ADRecipeTypes;
 import it.unimi.dsi.fastutil.objects.Object2IntMap;
 import it.unimi.dsi.fastutil.objects.Object2IntOpenHashMap;
 import net.minecraft.core.BlockPos;
@@ -99,7 +101,8 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
     protected final ContainerData cookingPotData;
     private final Object2IntOpenHashMap<ResourceLocation> usedRecipeTracker;
 
-    private final RecipeManager.CachedCheck<RecipeWrapper, CookingPotRecipe> quickCheck;
+    private final RecipeManager.CachedCheck<RecipeWrapper, CookingPotRecipe> cookingQuickCheck;
+    private final RecipeManager.CachedCheck<RecipeWrapper, ExtremeCookingPotRecipe> extremeQuickCheck;
 
     public ExtremeCookingPotBlockEntity(BlockPos pos, BlockState state) {
         super(ADBlockEntities.EXTREME_COOKING_POT_BE.get(), pos, state);
@@ -109,7 +112,8 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
         this.mealContainerStack = ItemStack.EMPTY;
         this.cookingPotData = createIntArray();
         this.usedRecipeTracker = new Object2IntOpenHashMap<>();
-        this.quickCheck = RecipeManager.createCheck(ModRecipeTypes.COOKING.get());
+        this.cookingQuickCheck = RecipeManager.createCheck(ModRecipeTypes.COOKING.get());
+        this.extremeQuickCheck = RecipeManager.createCheck(ADRecipeTypes.EXTREME_COOKING.get());
     }
 
     @SubscribeEvent
@@ -215,9 +219,10 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
         boolean didInventoryChange = false;
 
         if (isHeated && cookingPot.hasInput()) {
-            Optional<RecipeHolder<CookingPotRecipe>> recipe = cookingPot.getMatchingRecipe(new RecipeWrapper(cookingPot.inventory));
-            if (recipe.isPresent() && cookingPot.canCook(recipe.get().value())) {
-                didInventoryChange = cookingPot.processCooking(recipe.get(), cookingPot);
+            Optional<RecipeHolder<?>> recipe =
+                    cookingPot.getMatchingRecipe(new RecipeWrapper(cookingPot.inventory));
+            if (recipe.isPresent() && cookingPot.canCook(recipe.get())) {
+                didInventoryChange = cookingPot.processCooking(recipe.get());
             } else {
                 cookingPot.cookTime = Mth.clamp(cookingPot.cookTime - 2, 0, cookingPot.cookTimeTotal);
             }
@@ -262,9 +267,23 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
 
     }
 
-    private Optional<RecipeHolder<CookingPotRecipe>> getMatchingRecipe(RecipeWrapper inventoryWrapper) {
-        if (level == null) return Optional.empty();
-        return hasInput() ? quickCheck.getRecipeFor(inventoryWrapper, this.level) : Optional.empty();
+    private Optional<RecipeHolder<?>> getMatchingRecipe(RecipeWrapper inventoryWrapper)
+    {
+        if (level == null || !hasInput()) {
+            return Optional.empty();
+        }
+
+        Optional<RecipeHolder<CookingPotRecipe>> normalRecipe =
+                cookingQuickCheck.getRecipeFor(inventoryWrapper, this.level);
+
+        if (normalRecipe.isPresent()) {
+            return Optional.of(normalRecipe.get());
+        }
+
+        Optional<RecipeHolder<ExtremeCookingPotRecipe>> extremeRecipe =
+                extremeQuickCheck.getRecipeFor(inventoryWrapper, this.level);
+
+        return extremeRecipe.map(recipe -> recipe);
     }
 
     public ItemStack getContainer() {
@@ -280,11 +299,20 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
         return false;
     }
 
-    protected boolean canCook(CookingPotRecipe recipe) {
+    protected boolean canCook(RecipeHolder<?> recipeHolder) {
         if (level == null) return false;
 
         if (hasInput()) {
-            ItemStack resultStack = recipe.assemble(new RecipeWrapper(inventory), this.level.registryAccess());
+            ItemStack resultStack;
+
+            if (recipeHolder.value() instanceof CookingPotRecipe recipe) {
+                resultStack = recipe.assemble(new RecipeWrapper(inventory), this.level.registryAccess());
+            } else if (recipeHolder.value() instanceof ExtremeCookingPotRecipe recipe) {
+                resultStack = recipe.assemble(new RecipeWrapper(inventory), this.level.registryAccess());
+            } else {
+                return false;
+            }
+
             if (resultStack.isEmpty()) {
                 return false;
             } else {
@@ -304,35 +332,54 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
         }
     }
 
-    private boolean processCooking(RecipeHolder<CookingPotRecipe> recipe, ExtremeCookingPotBlockEntity cookingPot) {
+    private boolean processCooking(RecipeHolder<?> recipe) {
         if (level == null) return false;
 
         ++cookTime;
-        cookTimeTotal = recipe.value().getCookTime();
+        if (recipe.value() instanceof CookingPotRecipe normalRecipe) {
+            cookTimeTotal = normalRecipe.getCookTime();
+        } else if (recipe.value() instanceof ExtremeCookingPotRecipe extremeRecipe) {
+            cookTimeTotal = extremeRecipe.getCookTime();
+        }
         if (cookTime < cookTimeTotal) {
             return false;
         }
 
         cookTime = 0;
-        mealContainerStack = recipe.value().getOutputContainer();
-        ItemStack resultStack = recipe.value().assemble(new RecipeWrapper(inventory), this.level.registryAccess());
+        if (recipe.value() instanceof CookingPotRecipe normalRecipe) {
+            mealContainerStack = normalRecipe.getOutputContainer();
+        } else if (recipe.value() instanceof ExtremeCookingPotRecipe extremeRecipe) {
+            mealContainerStack = extremeRecipe.getOutputContainer();
+        }
+        ItemStack resultStack;
+
+        if (recipe.value() instanceof CookingPotRecipe normalRecipe) {
+            resultStack = normalRecipe.assemble(new RecipeWrapper(inventory), this.level.registryAccess());
+        } else if (recipe.value() instanceof ExtremeCookingPotRecipe extremeRecipe) {
+            resultStack = extremeRecipe.assemble(new RecipeWrapper(inventory), this.level.registryAccess());
+        } else {
+            return false;
+        }
         ItemStack storedMealStack = inventory.getStackInSlot(MEAL_DISPLAY_SLOT);
         if (storedMealStack.isEmpty()) {
             inventory.setStackInSlot(MEAL_DISPLAY_SLOT, resultStack.copy());
         } else if (ItemStack.isSameItem(storedMealStack, resultStack)) {
             storedMealStack.grow(resultStack.getCount());
         }
-        cookingPot.setRecipeUsed(recipe);
+        setRecipeUsed(recipe);
 
         for (int i = 0; i < MEAL_DISPLAY_SLOT; ++i) {
             ItemStack slotStack = inventory.getStackInSlot(i);
-            if (slotStack.hasCraftingRemainingItem()) {
-                ejectIngredientRemainder(slotStack.getCraftingRemainingItem());
-            } else if (INGREDIENT_REMAINDER_OVERRIDES.containsKey(slotStack.getItem())) {
-                ejectIngredientRemainder(INGREDIENT_REMAINDER_OVERRIDES.get(slotStack.getItem()).getDefaultInstance());
-            }
-            if (!slotStack.isEmpty())
+            if (!slotStack.isEmpty()) {
+                if (mealContainerStack.isEmpty()) {
+                    if (slotStack.hasCraftingRemainingItem()) {
+                        ejectIngredientRemainder(slotStack.getCraftingRemainingItem());
+                    } else if (INGREDIENT_REMAINDER_OVERRIDES.containsKey(slotStack.getItem())) {
+                        ejectIngredientRemainder(INGREDIENT_REMAINDER_OVERRIDES.get(slotStack.getItem()).getDefaultInstance());
+                    }
+                }
                 slotStack.shrink(1);
+            }
         }
         return true;
     }
@@ -373,7 +420,15 @@ public class ExtremeCookingPotBlockEntity extends SyncedBlockEntity implements M
         for (Object2IntMap.Entry<ResourceLocation> entry : usedRecipeTracker.object2IntEntrySet()) {
             level.getRecipeManager().byKey(entry.getKey()).ifPresent((recipe) -> {
                 list.add(recipe);
-                splitAndSpawnExperience((ServerLevel) level, pos, entry.getIntValue(), ((CookingPotRecipe) recipe.value()).getExperience());
+                float exp = 0;
+
+                if (recipe.value() instanceof CookingPotRecipe normalRecipe) {
+                    exp = normalRecipe.getExperience();
+                } else if (recipe.value() instanceof ExtremeCookingPotRecipe extremeRecipe) {
+                    exp = extremeRecipe.getExperience();
+                }
+
+                splitAndSpawnExperience((ServerLevel) level, pos, entry.getIntValue(), exp);
             });
         }
 
