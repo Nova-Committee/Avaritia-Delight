@@ -2,6 +2,7 @@ package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.client.render.ExtremeStoveRender;
+import committee.nova.avaritia_delight.common.block.entity.ExtremeCookingPotBlockEntity;
 import committee.nova.avaritia_delight.common.block.entity.ExtremeStoveBlockEntity;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -17,6 +18,8 @@ public class ADBlockEntities {
     public static final DeferredRegister<BlockEntityType<?>> BLOCK_ENTITIES = DeferredRegister.create(BuiltInRegistries.BLOCK_ENTITY_TYPE, AvaritiaDelight.MOD_ID);
 
     public static final Supplier<BlockEntityType<ExtremeStoveBlockEntity>> EXTREME_STOVE_BE = BLOCK_ENTITIES.register("extreme_stove", () -> BlockEntityType.Builder.of(ExtremeStoveBlockEntity::new, ADBlocks.extreme_stove.get()).build( null));
+
+    public static final Supplier<BlockEntityType<ExtremeCookingPotBlockEntity>> EXTREME_COOKING_POT_BE = BLOCK_ENTITIES.register("extreme_cooking_pot", () -> BlockEntityType.Builder.of(ExtremeCookingPotBlockEntity::new, ADBlocks.extreme_cooking_pot.get()).build( null));
 
     @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {

@@ -1,9 +1,6 @@
 package committee.nova.avaritia_delight;
 
-import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
-import committee.nova.avaritia_delight.init.registry.ADBlocks;
-import committee.nova.avaritia_delight.init.registry.ADCreativeModeTabs;
-import committee.nova.avaritia_delight.init.registry.ADItems;
+import committee.nova.avaritia_delight.init.registry.*;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -19,6 +16,7 @@ public class AvaritiaDelight {
         ADBlocks.register(modEventBus);
         ADBlockEntities.register(modEventBus);
         ADCreativeModeTabs.register(modEventBus);
+        ADMenus.register(modEventBus);
     }
 
 }

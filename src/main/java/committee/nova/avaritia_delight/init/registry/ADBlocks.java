@@ -1,6 +1,7 @@
 package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
+import committee.nova.avaritia_delight.common.block.ExtremeCookingPotBlock;
 import committee.nova.avaritia_delight.common.block.ExtremeStoveBlock;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -18,6 +19,7 @@ public class ADBlocks {
 
     public static DeferredBlock<Block> extreme_stove = itemBlock("extreme_stove", () -> new ExtremeStoveBlock(BlockBehaviour.Properties.of().strength(5F,2000F)));
 
+    public static DeferredBlock<Block> extreme_cooking_pot = itemBlock("extreme_cooking_pot", () -> new ExtremeCookingPotBlock(BlockBehaviour.Properties.of().strength(5F,2000F)));
 
 
     private static <T extends Block> DeferredBlock<T> itemBlock(String name, Supplier<T> block){

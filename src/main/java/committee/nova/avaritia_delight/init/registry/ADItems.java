@@ -1,6 +1,7 @@
 package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
+import committee.nova.avaritia_delight.common.item.food.ExperienceJellyItem;
 import committee.nova.avaritia_delight.common.item.food.FuriousCocktailItem;
 import committee.nova.avaritia_delight.common.item.food.HowDidWeGetHereItem;
 import committee.nova.avaritia_delight.common.item.food.InfinityMilkItem;
@@ -61,6 +62,10 @@ public class ADItems {
             HowDidWeGetHereItem::new);
     public static DeferredItem<Item> infinity_milk = ITEMS.register("infinity_milk",
             InfinityMilkItem::new);
+
+    public static DeferredItem<Item> experience_jelly = ITEMS.register("experience_jelly",
+            ()-> new ExperienceJellyItem(new Item.Properties().rarity(ADRarities.FUNCTION.getValue())));
+
 
     public static DeferredItem<Item> blaze_tomato_seeds = ITEMS.register("blaze_tomato_seeds",
             ()-> new Item(new Item.Properties().fireResistant()));

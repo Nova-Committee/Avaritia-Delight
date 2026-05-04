@@ -33,11 +33,13 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.neutronium_bread.get());
                 output.accept(ADItems.cosmic_beef.get());
                 output.accept(ADItems.cosmic_beef_cooked.get());
+                output.accept(ADItems.experience_jelly.get());
                 output.accept(ADItems.infinity_apple.get());
                 output.accept(ADItems.furious_cocktail.get());
                 output.accept(ADItems.how_did_we_get_here.get());
                 output.accept(ADItems.infinity_milk.get());
                 output.accept(ADBlocks.extreme_stove.get());
+                output.accept(ADBlocks.extreme_cooking_pot.get());
             }).build());
     public static void register(IEventBus bus){
         TABS.register(bus);
