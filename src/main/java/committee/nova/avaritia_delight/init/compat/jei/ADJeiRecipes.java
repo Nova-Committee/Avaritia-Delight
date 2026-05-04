@@ -1,15 +1,10 @@
 package committee.nova.avaritia_delight.init.compat.jei;
 
-import committee.nova.avaritia_delight.common.crafting.recipe.ExtremeCookingPotRecipe;
-import committee.nova.avaritia_delight.init.registry.ADBlocks;
 import committee.nova.avaritia_delight.init.registry.ADRecipeTypes;
-import mezz.jei.api.registration.IRecipeCatalystRegistration;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import vectorwing.farmersdelight.common.registry.ModRecipeTypes;
-import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 
 import java.util.List;
 

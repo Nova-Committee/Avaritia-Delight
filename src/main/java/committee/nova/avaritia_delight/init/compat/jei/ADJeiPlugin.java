@@ -6,7 +6,6 @@ import committee.nova.avaritia_delight.common.menu.ExtremeCookingPotMenu;
 import committee.nova.avaritia_delight.init.compat.jei.category.ExtremeCookingRecipeCategory;
 import committee.nova.avaritia_delight.init.registry.ADBlocks;
 import committee.nova.avaritia_delight.init.registry.ADMenus;
-import committee.nova.avaritia_delight.init.registry.ADRecipeTypes;
 import mezz.jei.api.IModPlugin;
 import mezz.jei.api.JeiPlugin;
 import mezz.jei.api.registration.*;
