@@ -26,7 +26,7 @@ public class ADJeiPlugin implements IModPlugin {
     @Override
     public void registerRecipes(IRecipeRegistration registration) {
         ADJeiRecipes modRecipes = new ADJeiRecipes();
-        registration.addRecipes(ADJeiRecipeTypes.EXTREME_COOKING, modRecipes.getCookingPotRecipes());
+        registration.addRecipes(ADJeiRecipeTypes.EXTREME_COOKING, modRecipes.getAllCookingRecipes());
     }
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {

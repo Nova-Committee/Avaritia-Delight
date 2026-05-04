@@ -8,6 +8,8 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
+import vectorwing.farmersdelight.common.registry.ModRecipeTypes;
+import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 
 import java.util.List;
 
@@ -27,8 +29,11 @@ public class ADJeiRecipes {
         }
     }
 
-    public List<RecipeHolder<ExtremeCookingPotRecipe>> getCookingPotRecipes() {
-        return recipeManager.getAllRecipesFor(ADRecipeTypes.EXTREME_COOKING.get());
+    public List<RecipeHolder<?>> getAllCookingRecipes() {
+        List<RecipeHolder<?>> allRecipes = new java.util.ArrayList<>();
+        allRecipes.addAll(recipeManager.getAllRecipesFor(ADRecipeTypes.EXTREME_COOKING.get()));
+        allRecipes.addAll(recipeManager.getAllRecipesFor(ModRecipeTypes.COOKING.get()));
+        return allRecipes;
     }
 
 }

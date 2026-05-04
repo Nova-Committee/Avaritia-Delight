@@ -24,16 +24,18 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.RecipeHolder;
 import org.jetbrains.annotations.Nullable;
+import vectorwing.farmersdelight.common.crafting.CookingPotRecipe;
 import vectorwing.farmersdelight.common.utility.ClientRenderUtils;
 import vectorwing.farmersdelight.common.utility.RecipeUtils;
 import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import javax.annotation.ParametersAreNonnullByDefault;
 import java.util.Arrays;
+import java.util.List;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
-public class ExtremeCookingRecipeCategory implements IRecipeCategory<RecipeHolder<ExtremeCookingPotRecipe>> {
+public class ExtremeCookingRecipeCategory implements IRecipeCategory<RecipeHolder<?>> {
 
     protected final IDrawable heatIndicator;
     protected final IDrawable timeIcon;
@@ -59,7 +61,7 @@ public class ExtremeCookingRecipeCategory implements IRecipeCategory<RecipeHolde
 
 
     @Override
-    public RecipeType<RecipeHolder<ExtremeCookingPotRecipe>> getRecipeType() {
+    public RecipeType<RecipeHolder<?>> getRecipeType() {
         return ADJeiRecipeTypes.EXTREME_COOKING;
     }
 
@@ -80,11 +82,22 @@ public class ExtremeCookingRecipeCategory implements IRecipeCategory<RecipeHolde
     }
 
     @Override
-    public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<ExtremeCookingPotRecipe> holder, IFocusGroup focusGroup) {
-        ExtremeCookingPotRecipe recipe = holder.value();
-        NonNullList<Ingredient> recipeIngredients = recipe.getIngredients();
-        ItemStack resultStack = RecipeUtils.getResultItem(recipe);
-        ItemStack containerStack = recipe.getOutputContainer();
+    public void setRecipe(IRecipeLayoutBuilder builder, RecipeHolder<?> holder, IFocusGroup focusGroup) {
+        NonNullList<Ingredient> recipeIngredients;
+        ItemStack resultStack;
+        ItemStack containerStack = ItemStack.EMPTY;
+
+        if (holder.value() instanceof ExtremeCookingPotRecipe extremeRecipe) {
+            recipeIngredients = extremeRecipe.getIngredients();
+            resultStack = RecipeUtils.getResultItem(holder.value());
+            containerStack = extremeRecipe.getOutputContainer();
+        } else if (holder.value() instanceof CookingPotRecipe normalRecipe) {
+            recipeIngredients = normalRecipe.getIngredients();
+            resultStack = RecipeUtils.getResultItem(holder.value());
+            containerStack = normalRecipe.getOutputContainer();
+        } else {
+            return;
+        }
 
         int borderSlotSize = 18;
         for (int row = 0; row < 9; ++row) {
@@ -107,30 +120,46 @@ public class ExtremeCookingRecipeCategory implements IRecipeCategory<RecipeHolde
     }
 
     @Override
-    public void draw(RecipeHolder<ExtremeCookingPotRecipe> holder, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
+    public void draw(RecipeHolder<?> holder, IRecipeSlotsView recipeSlotsView, GuiGraphics guiGraphics, double mouseX, double mouseY) {
         background.draw(guiGraphics, 0, 0);
         arrow.draw(guiGraphics, 147, 73);
         heatIndicator.draw(guiGraphics, 152, 49);
         timeIcon.draw(guiGraphics, 139, 5);
-        if (holder.value().getExperience() > 0) {
+
+        float experience = 0;
+        if (holder.value() instanceof ExtremeCookingPotRecipe extremeRecipe) {
+            experience = extremeRecipe.getExperience();
+        } else if (holder.value() instanceof CookingPotRecipe normalRecipe) {
+            experience = normalRecipe.getExperience();
+        }
+
+        if (experience > 0) {
             expIcon.draw(guiGraphics, 138, 24);
         }
     }
 
 
     @Override
-    public void getTooltip(ITooltipBuilder tooltip, RecipeHolder<ExtremeCookingPotRecipe> recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
+    public void getTooltip(ITooltipBuilder tooltip, RecipeHolder<?> recipe, IRecipeSlotsView recipeSlotsView, double mouseX, double mouseY) {
         if (ClientRenderUtils.isCursorInsideBounds(136, 2, 22, 28, mouseX, mouseY)) {
-            int cookTime = recipe.value().getCookTime();
+            int cookTime = 0;
+            float experience = 0;
+
+            if (recipe.value() instanceof ExtremeCookingPotRecipe extremeRecipe) {
+                cookTime = extremeRecipe.getCookTime();
+                experience = extremeRecipe.getExperience();
+            } else if (recipe.value() instanceof CookingPotRecipe normalRecipe) {
+                cookTime = normalRecipe.getCookTime();
+                experience = normalRecipe.getExperience();
+            }
+
             if (cookTime > 0) {
                 int cookTimeSeconds = cookTime / 20;
                 tooltip.add(Component.translatable("gui.jei.category.smelting.time.seconds", cookTimeSeconds));
             }
-            float experience = recipe.value().getExperience();
             if (experience > 0) {
                 tooltip.add(Component.translatable("gui.jei.category.smelting.experience", experience));
             }
         }
     }
 }
-
