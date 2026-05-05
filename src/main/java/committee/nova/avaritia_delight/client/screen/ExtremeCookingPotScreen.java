@@ -38,7 +38,7 @@ public class ExtremeCookingPotScreen extends AbstractContainerScreen<ExtremeCook
     @Override
     protected void init() {
         super.init();
-        this.titleLabelX = ((this.imageWidth - this.font.width(this.title)) / 2)-85;
+        this.titleLabelX = ((this.imageWidth - this.font.width(this.title)) / 2)-60;
         this.titleLabelY = 6;
     }
 
