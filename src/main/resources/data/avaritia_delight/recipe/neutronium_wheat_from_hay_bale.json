@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+
+  "ingredients": [
+    {
+      "item": "avaritia_delight:neutronium_hay_bale"
+    }
+  ],
+  "result": {
+    "count": 9,
+    "id": "avaritia_delight:neutronium_wheat"
+  }
+}

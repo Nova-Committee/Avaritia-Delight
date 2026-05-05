@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "item": "avaritia_delight:neutronium_wheat"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "id": "avaritia_delight:neutronium_hay_bale",
+    "count": 1
+  },
+  "show_notification": true
+}

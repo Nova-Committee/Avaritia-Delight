@@ -1,0 +1,91 @@
+{
+  "type": "avaritia:shapeless_table",
+  "ingredients": [
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    }
+  ],
+  "result": {
+    "id": "avaritia_delight:neutronium_bread",
+    "count": 1
+  },
+  "tier": 4
+}

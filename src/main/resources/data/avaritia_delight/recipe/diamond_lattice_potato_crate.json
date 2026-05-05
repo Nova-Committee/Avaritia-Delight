@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "#": {
+      "item": "avaritia_delight:diamond_lattice_potato"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "id": "avaritia_delight:diamond_lattice_potato_crate",
+    "count": 1
+  },
+  "show_notification": true
+}

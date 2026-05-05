@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "#": {
+      "item": "avaritia_delight:crystal_cabbage"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "result": {
+    "id": "avaritia_delight:crystal_cabbage_crate",
+    "count": 1
+  },
+  "show_notification": true
+}
