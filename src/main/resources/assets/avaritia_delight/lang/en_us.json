@@ -7,6 +7,7 @@
   "item.avaritia_delight.infinity_knife": "Infinity Knife",
   "item.avaritia_delight.blaze_tomato_seeds": "Blaze Tomato Seeds",
   "item.avaritia_delight.blaze_tomato": "Blaze Tomato",
+  "item.avaritia_delight.blaze_tomato_sauce": "Blaze Tomato Sauce",
   "item.avaritia_delight.diamond_lattice_potato": "Diamond Lattice Potato",
   "item.avaritia_delight.diamond_lattice_fries": "Diamond Lattice Fries",
   "item.avaritia_delight.crystal_cabbage_seeds": "Crystal Cabbage Seeds",
@@ -27,6 +28,10 @@
   "item.avaritia_delight.neutronium_bowl": "Neutronium Bowl",
   "item.avaritia_delight.neutronium_pot": "Neutronium Pot",
 
+  "block.avaritia_delight.diamond_lattice_potato_crate": "Diamond Lattice Potato Crate",
+  "block.avaritia_delight.blaze_tomato_crate": "Blaze Tomato Crate",
+  "block.avaritia_delight.crystal_cabbage_crate": "Crystal Cabbage Crate",
+  "block.avaritia_delight.neutronium_hay_bale": "Neutronium Hay Bale",
   "block.avaritia_delight.extreme_stove": "Extreme Stove",
   "block.avaritia_delight.extreme_cooking_pot": "Extreme Cooking Pot",
 

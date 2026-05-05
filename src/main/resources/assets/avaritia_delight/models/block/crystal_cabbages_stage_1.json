@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cross",
+  "textures": {
+    "cross": "avaritia_delight:block/crystal/crystal_cabbages_stage_1"
+  },
+  "render_type": "cutout"
+}

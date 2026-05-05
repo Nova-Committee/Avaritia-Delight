@@ -8,6 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
 import net.minecraft.world.item.Item;
+import net.neoforged.neoforge.common.Tags;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import org.jetbrains.annotations.NotNull;
 import vectorwing.farmersdelight.common.tag.ModTags;
@@ -28,11 +29,43 @@ public class ADItemTags extends IntrinsicHolderTagsProvider<Item> {
 
     @Override
     protected void addTags(HolderLookup.Provider provider) {
-        tag(ModTags.Items.KNIVES).add(ADItems.blaze_knife.get());
-        tag(ModTags.Items.KNIVES).add(ADItems.crystal_knife.get());
-        tag(ModTags.Items.KNIVES).add(ADItems.neutronium_knife.get());
-        tag(ModTags.Items.KNIVES).add(ADItems.infinity_knife.get());
+        tag(ModTags.Items.KNIVES)
+                .add(ADItems.blaze_knife.get())
+                .add(ADItems.crystal_knife.get())
+                .add(ADItems.neutronium_knife.get())
+                .add(ADItems.infinity_knife.get())
+        ;
         tag(committee.nova.mods.avaritia.init.registry.ModTags.IMMORTAL_ITEM).add(ADItems.infinity_knife.get());
         tag(ADTags.LONG_TIME_COOK).add(ADItems.cosmic_beef.get());
+        tag(Tags.Items.CROPS)
+                .add(ADItems.crystal_cabbage.get())
+                .add(ADItems.blaze_tomato.get())
+                .add(ADItems.diamond_lattice_potato.get())
+                .add(ADItems.neutronium_wheat.get())
+        ;
+        tag(Tags.Items.SEEDS)
+                .add(ADItems.blaze_tomato_seeds.get())
+                .add(ADItems.crystal_cabbage_seeds.get())
+                .add(ADItems.diamond_lattice_potato.get())
+                .add(ADItems.neutronium_wheat_seeds.get())
+        ;
+        tag(Tags.Items.FOODS)
+                .add(ADItems.blaze_tomato.get())
+                .add(ADItems.blaze_tomato_sauce.get())
+                .add(ADItems.crystal_cabbage.get())
+                .add(ADItems.crystal_cabbage_leaf.get())
+                .add(ADItems.raw_crystal_pasta.get())
+                .add(ADItems.diamond_lattice_potato.get())
+                .add(ADItems.diamond_lattice_fries.get())
+                .add(ADItems.neutronium_bread.get())
+                .add(ADItems.neutronium_wheat_dough.get())
+                .add(ADItems.cosmic_beef.get())
+                .add(ADItems.cosmic_beef_cooked.get())
+                .add(ADItems.experience_jelly.get())
+                .add(ADItems.infinity_apple.get())
+                .add(ADItems.furious_cocktail.get())
+                .add(ADItems.how_did_we_get_here.get())
+                .add(ADItems.infinity_milk.get())
+        ;
     }
 }

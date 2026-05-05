@@ -21,6 +21,7 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.infinity_knife.get());
                 output.accept(ADItems.blaze_tomato_seeds.get());
                 output.accept(ADItems.blaze_tomato.get());
+                output.accept(ADItems.blaze_tomato_sauce.get());
                 output.accept(ADItems.diamond_lattice_potato.get());
                 output.accept(ADItems.diamond_lattice_fries.get());
                 output.accept(ADItems.crystal_cabbage_seeds.get());
@@ -40,6 +41,10 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.infinity_milk.get());
                 output.accept(ADItems.neutronium_bowl.get());
                 output.accept(ADItems.neutronium_pot.get());
+                output.accept(ADBlocks.diamond_lattice_potato_crate.get());
+                output.accept(ADBlocks.blaze_tomato_crate.get());
+                output.accept(ADBlocks.crystal_cabbage_crate.get());
+                output.accept(ADBlocks.neutronium_hay_bale.get());
                 output.accept(ADBlocks.extreme_stove.get());
                 output.accept(ADBlocks.extreme_cooking_pot.get());
             }).build());

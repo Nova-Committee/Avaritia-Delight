@@ -1,0 +1,38 @@
+{
+  "type": "avaritia_delight:extreme_cooking",
+  "experience": 1.0,
+  "ingredients": [
+    {
+      "item": "avaritia_delight:blaze_tomato"
+    },
+    {
+      "item": "avaritia_delight:blaze_tomato"
+    },
+    {
+      "item": "avaritia_delight:blaze_tomato"
+    },
+    {
+      "item": "avaritia_delight:blaze_tomato"
+    },
+    {
+      "item": "avaritia:blaze_cube"
+    },
+    {
+      "item": "avaritia:blaze_cube"
+    },
+    {
+      "item": "avaritia:blaze_cube"
+    },
+    {
+      "item": "avaritia:blaze_cube"
+    }
+  ],
+  "container": {
+    "id": "avaritia_delight:neutronium_bowl",
+    "count": 1
+  },
+  "result": {
+    "id": "avaritia_delight:blaze_tomato_sauce",
+    "count": 1
+  }
+}

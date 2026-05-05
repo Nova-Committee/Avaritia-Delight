@@ -7,6 +7,7 @@
   "item.avaritia_delight.infinity_knife": "落幕苍穹之刃",
   "item.avaritia_delight.blaze_tomato_seeds": "烈火番茄种子",
   "item.avaritia_delight.blaze_tomato": "烈火番茄",
+  "item.avaritia_delight.blaze_tomato_sauce": "烈火番茄酱",
   "item.avaritia_delight.diamond_lattice_potato": "晶格马铃薯",
   "item.avaritia_delight.diamond_lattice_fries": "晶格薯条",
   "item.avaritia_delight.crystal_cabbage_seeds": "矩阵卷心菜种子",
@@ -27,6 +28,10 @@
   "item.avaritia_delight.neutronium_bowl": "中子素态碗",
   "item.avaritia_delight.neutronium_pot": "中子素态锅",
 
+  "block.avaritia_delight.diamond_lattice_potato_crate": "箱装晶格马铃薯",
+  "block.avaritia_delight.blaze_tomato_crate": "箱装烈火番茄",
+  "block.avaritia_delight.crystal_cabbage_crate": "箱装矩阵卷心菜",
+  "block.avaritia_delight.neutronium_hay_bale": "中子态素干草块",
   "block.avaritia_delight.extreme_stove": "终焉炉灶",
   "block.avaritia_delight.extreme_cooking_pot": "终焉厨锅",
 

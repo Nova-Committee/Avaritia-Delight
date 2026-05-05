@@ -1,16 +1,13 @@
 package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
-import committee.nova.avaritia_delight.common.item.food.ExperienceJellyItem;
-import committee.nova.avaritia_delight.common.item.food.FuriousCocktailItem;
-import committee.nova.avaritia_delight.common.item.food.HowDidWeGetHereItem;
-import committee.nova.avaritia_delight.common.item.food.InfinityMilkItem;
+import committee.nova.avaritia_delight.common.item.food.*;
 import committee.nova.avaritia_delight.common.item.tool.AvaritiaKnifeItem;
 import committee.nova.avaritia_delight.common.item.tool.InfinityKnifeItem;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
 import committee.nova.mods.avaritia.init.registry.ModToolTiers;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Rarity;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
@@ -29,17 +26,19 @@ public class ADItems {
             ()-> new InfinityKnifeItem(ModToolTiers.INFINITY, new Item.Properties().fireResistant().rarity(ModRarities.COSMIC.getValue()).attributes(InfinityKnifeItem.createAttributes(ModToolTiers.INFINITY, -50, 0))));
 
     public static DeferredItem<Item> blaze_tomato = ITEMS.register("blaze_tomato",
-            ()-> new Item(new Item.Properties().fireResistant()));
+            ()-> new Item(new Item.Properties().fireResistant().food(ADFoods.CROPS)));
+    public static DeferredItem<Item> blaze_tomato_sauce = ITEMS.register("blaze_tomato_sauce",
+            ()-> new BlazeTomatoSauceItem(new Item.Properties().fireResistant().food(ADFoods.BLAZE_TOMATO_SAUCE)));
 
     public static DeferredItem<Item> diamond_lattice_fries = ITEMS.register("diamond_lattice_fries",
-            ()-> new Item(new Item.Properties()));
+            ()-> new Item(new Item.Properties().food(ADFoods.CROPS)));
     public static DeferredItem<Item> diamond_lattice_potato = ITEMS.register("diamond_lattice_potato",
-            ()-> new Item(new Item.Properties()));
+            ()-> new ItemNameBlockItem(ADBlocks.diamond_lattice_potatoes.get(),new Item.Properties().food(ADFoods.CROPS)));
 
     public static DeferredItem<Item> crystal_cabbage_leaf = ITEMS.register("crystal_cabbage_leaf",
-            ()-> new Item(new Item.Properties()));
+            ()-> new Item(new Item.Properties().food(ADFoods.CROPS)));
     public static DeferredItem<Item> crystal_cabbage = ITEMS.register("crystal_cabbage",
-            ()-> new Item(new Item.Properties()));
+            ()-> new Item(new Item.Properties().food(ADFoods.CROPS)));
     public static DeferredItem<Item> raw_crystal_pasta = ITEMS.register("raw_crystal_pasta",
             ()-> new Item(new Item.Properties()));
 
@@ -69,14 +68,14 @@ public class ADItems {
 
 
     public static DeferredItem<Item> blaze_tomato_seeds = ITEMS.register("blaze_tomato_seeds",
-            ()-> new Item(new Item.Properties().fireResistant()));
+            ()-> new ItemNameBlockItem(ADBlocks.budding_blaze_tomatoes.get(),new Item.Properties().fireResistant()));
     public static DeferredItem<Item> neutronium_wheat_seeds = ITEMS.register("neutronium_wheat_seeds",
-            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            ()-> new ItemNameBlockItem(ADBlocks.neutronium_wheats.get(),new Item.Properties().rarity(Rarity.EPIC)));
     public static DeferredItem<Item> crystal_cabbage_seeds = ITEMS.register("crystal_cabbage_seeds",
-            ()-> new Item(new Item.Properties()));
+            ()-> new ItemNameBlockItem(ADBlocks.crystal_cabbages.get(),new Item.Properties()));
 
     public static DeferredItem<Item> neutronium_pot = ITEMS.register("neutronium_pot",
-            ()-> new Item(new Item.Properties()));
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static DeferredItem<Item> neutronium_bowl = ITEMS.register("neutronium_bowl",
             ()-> new Item(new Item.Properties()));
 
