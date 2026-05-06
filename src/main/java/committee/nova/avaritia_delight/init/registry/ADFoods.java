@@ -11,6 +11,10 @@ public class ADFoods {
             .nutrition(2).saturationModifier(0.5F).fast().effect(new MobEffectInstance(MobEffects.JUMP, 600, 0),1).alwaysEdible().build();
     public static final FoodProperties BLAZE_TOMATO_SAUCE = new FoodProperties.Builder()
             .nutrition(10).saturationModifier(1.2F).build();
+    public static final FoodProperties COSMIC_BEEF = new FoodProperties.Builder()
+            .nutrition(12).saturationModifier(0.8F).build();
+    public static final FoodProperties COSMIC_BEEF_COOKED = new FoodProperties.Builder()
+            .nutrition(15).saturationModifier(1.4F).build();
 
     public static final FoodProperties CROPS = new FoodProperties.Builder()
             .nutrition(3).saturationModifier(1.0F).build();

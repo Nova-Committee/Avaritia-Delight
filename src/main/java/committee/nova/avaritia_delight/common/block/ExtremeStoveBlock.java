@@ -4,6 +4,7 @@ import com.mojang.serialization.MapCodec;
 import committee.nova.avaritia_delight.common.block.entity.ExtremeStoveBlockEntity;
 import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
 import committee.nova.avaritia_delight.init.registry.ADItems;
+import committee.nova.avaritia_delight.init.registry.ADRecipeTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.particles.ParticleTypes;
@@ -14,6 +15,10 @@ import net.minecraft.world.InteractionHand;
 import net.minecraft.world.ItemInteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.RecipeHolder;
+import net.minecraft.world.item.crafting.RecipeType;
+import net.minecraft.world.item.crafting.SingleRecipeInput;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -81,22 +86,6 @@ public class ExtremeStoveBlock extends AbstractStoveBlock {
             }
         }
 
-        if (heldStack.is(ADItems.cosmic_beef.get())) {
-            BlockEntity blockEntity = level.getBlockEntity(pos);
-
-            if (blockEntity instanceof ExtremeStoveBlockEntity stove) {
-                boolean placed = stove.placeFood(
-                        player,
-                        heldStack,
-                        null
-                );
-
-                if (placed) {
-                    return ItemInteractionResult.SUCCESS;
-                }
-            }
-        }
-
         return this.tryToPlaceFoodItem(
                 heldStack,
                 state,
@@ -107,6 +96,58 @@ public class ExtremeStoveBlock extends AbstractStoveBlock {
                 hit
         );
     }
+
+    @Override
+    protected ItemInteractionResult tryToPlaceFoodItem(
+            ItemStack heldStack,
+            BlockState state,
+            Level level,
+            BlockPos pos,
+            Player player,
+            InteractionHand hand,
+            BlockHitResult hit
+    ) {
+        if (!(level.getBlockEntity(pos)
+                instanceof ExtremeStoveBlockEntity stove)) {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
+        if (stove.isFull()) {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
+        SingleRecipeInput input = new SingleRecipeInput(heldStack);
+
+        RecipeHolder<? extends AbstractCookingRecipe> recipe =
+                level.getRecipeManager()
+                        .getRecipeFor(
+                                ADRecipeTypes.EX_COOKING.get(),
+                                input,
+                                level
+                        )
+                        .<RecipeHolder<? extends AbstractCookingRecipe>>map(r -> r)
+                        .or(() ->
+                                level.getRecipeManager()
+                                        .getRecipeFor(
+                                                RecipeType.CAMPFIRE_COOKING,
+                                                input,
+                                                level
+                                        )
+                                        .<RecipeHolder<? extends AbstractCookingRecipe>>map(r -> r)
+                        )
+                        .orElse(null);
+
+        if (recipe == null) {
+            return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+        }
+
+        if (stove.placeFood(player, heldStack, recipe)) {
+            return ItemInteractionResult.SUCCESS;
+        }
+
+        return ItemInteractionResult.PASS_TO_DEFAULT_BLOCK_INTERACTION;
+    }
+
     @Override
     public BlockEntity newBlockEntity(BlockPos pos, BlockState state) {
         return new ExtremeStoveBlockEntity(pos, state);

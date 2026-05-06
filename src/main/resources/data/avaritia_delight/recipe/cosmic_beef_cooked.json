@@ -1,0 +1,12 @@
+{
+  "type": "avaritia_delight:ex_cooking",
+  "category": "food",
+  "ingredient": {
+    "item": "avaritia_delight:cosmic_beef"
+  },
+  "result": {
+    "id": "avaritia_delight:cosmic_beef_cooked"
+  },
+  "experience": 1.0,
+  "cookingtime": 200
+}

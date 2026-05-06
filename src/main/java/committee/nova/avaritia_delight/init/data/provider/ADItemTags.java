@@ -36,7 +36,7 @@ public class ADItemTags extends IntrinsicHolderTagsProvider<Item> {
                 .add(ADItems.infinity_knife.get())
         ;
         tag(committee.nova.mods.avaritia.init.registry.ModTags.IMMORTAL_ITEM).add(ADItems.infinity_knife.get());
-        tag(ADTags.LONG_TIME_COOK).add(ADItems.cosmic_beef.get());
+
         tag(Tags.Items.CROPS)
                 .add(ADItems.crystal_cabbage.get())
                 .add(ADItems.blaze_tomato.get())

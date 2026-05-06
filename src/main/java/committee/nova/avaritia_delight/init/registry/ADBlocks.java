@@ -30,7 +30,7 @@ public class ADBlocks {
     public static final DeferredBlock<Block> crystal_cabbages = itemBlock("crystal_cabbages",
             () -> new CrystalCabbageBlock(Block.Properties.ofFullCopy(Blocks.WHEAT)));
     public static final DeferredBlock<Block> neutronium_wheats = itemBlock("neutronium_wheats",
-            () -> new CropBlock(Block.Properties.ofFullCopy(Blocks.WHEAT)));
+            () -> new NeutroniumWheatBlock(Block.Properties.ofFullCopy(Blocks.WHEAT)));
 
     public static final DeferredBlock<Block> diamond_lattice_potato_crate = itemBlock("diamond_lattice_potato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> blaze_tomato_crate = itemBlock("blaze_tomato_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));

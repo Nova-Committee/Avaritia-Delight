@@ -30,8 +30,7 @@ public class ADBlockTags extends IntrinsicHolderTagsProvider<Block> {
     @Override
     protected void addTags(HolderLookup.Provider provider) {
         tag(ModTags.Blocks.HEAT_SOURCES).add(
-                ADBlocks.extreme_stove.get(),
-                ADBlocks.extreme_cooking_pot.get()
+                ADBlocks.extreme_stove.get()
         );
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ADBlocks.extreme_stove.get());
     }

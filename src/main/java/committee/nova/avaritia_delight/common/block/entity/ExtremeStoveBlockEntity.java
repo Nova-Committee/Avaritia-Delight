@@ -3,6 +3,7 @@ package committee.nova.avaritia_delight.common.block.entity;
 import committee.nova.avaritia_delight.init.mixin.StoveAccessor;
 import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
 import committee.nova.avaritia_delight.init.registry.ADItems;
+import committee.nova.avaritia_delight.init.registry.ADRecipeTypes;
 import committee.nova.avaritia_delight.init.registry.ADTags;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -102,24 +103,37 @@ public class ExtremeStoveBlockEntity extends AbstractStoveBlockEntity {
 
         StoveAccessor accessor = (StoveAccessor) this;
 
-        ItemStack placed = foodStackToPlace.split(1);
+        AbstractCookingRecipe cookingRecipe = recipe.value();
 
-        if (placed.is(ADItems.cosmic_beef.get())) {
-            accessor.getCookingTime()[emptySlotIndex] = 200;
-        } else {
-            accessor.getCookingTime()[emptySlotIndex] =
-                    placed.is(ADTags.LONG_TIME_COOK)
-                            ? 200
-                            : 20;
-        }
+        accessor.getCookingTime()[emptySlotIndex] =
+                cookingRecipe.getType() == ADRecipeTypes.EX_COOKING.get()
+                        ? cookingRecipe.getCookingTime()
+                        : 20;
 
         accessor.getCookingProgress()[emptySlotIndex] = 0;
 
-        this.getItems().setStackInSlot(emptySlotIndex, placed);
+        this.getItems().setStackInSlot(
+                emptySlotIndex,
+                foodStackToPlace.split(1)
+        );
+
         this.setChanged();
 
         if (this.level != null) {
-            this.level.sendBlockUpdated(this.worldPosition, this.getBlockState(), this.getBlockState(), 3);
+            BlockState state = this.getBlockState();
+
+            this.level.sendBlockUpdated(
+                    this.worldPosition,
+                    state,
+                    state,
+                    3
+            );
+
+            this.level.gameEvent(
+                    GameEvent.BLOCK_CHANGE,
+                    this.worldPosition,
+                    GameEvent.Context.of(entity, state)
+            );
         }
 
         return true;
@@ -161,28 +175,32 @@ public class ExtremeStoveBlockEntity extends AbstractStoveBlockEntity {
                 if (accessor.getCookingProgress()[i]
                         >= accessor.getCookingTime()[i]) {
 
-                    ItemStack result;
-
-                    if (ingredient.is(
-                            ADItems.cosmic_beef.get())) {
-
-                        result = new ItemStack(
-                                ADItems.cosmic_beef_cooked.get()
-                        );
-
-                    } else {
-
                         SingleRecipeInput input =
                                 new SingleRecipeInput(ingredient);
 
-                        result = this.getCookingRecipe(ingredient)
-                                .map(recipe ->
-                                        recipe.value().assemble(
-                                                input,
-                                                this.level.registryAccess()
-                                        ))
-                                .orElse(ingredient);
-                    }
+                    ItemStack result =
+                            this.level.getRecipeManager()
+                                    .getRecipeFor(
+                                            ADRecipeTypes.EX_COOKING.get(),
+                                            input,
+                                            this.level
+                                    )
+                                    .<RecipeHolder<? extends AbstractCookingRecipe>>map(r -> r)
+                                    .or(() ->
+                                            this.level.getRecipeManager()
+                                                    .getRecipeFor(
+                                                            RecipeType.CAMPFIRE_COOKING,
+                                                            input,
+                                                            this.level
+                                                    )
+                                                    .<RecipeHolder<? extends AbstractCookingRecipe>>map(r -> r)
+                                    )
+                                    .map(recipe ->
+                                            recipe.value().assemble(
+                                                    input,
+                                                    this.level.registryAccess()
+                                            ))
+                                    .orElse(ingredient);
 
                     if (result.isItemEnabled(
                             this.level.enabledFeatures())) {

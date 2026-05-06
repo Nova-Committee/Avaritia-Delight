@@ -50,9 +50,9 @@ public class ADItems {
             ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
 
     public static DeferredItem<Item> cosmic_beef = ITEMS.register("cosmic_beef",
-            ()-> new Item(new Item.Properties()));
+            ()-> new Item(new Item.Properties().food(ADFoods.COSMIC_BEEF)));
     public static DeferredItem<Item> cosmic_beef_cooked = ITEMS.register("cosmic_beef_cooked",
-            ()-> new Item(new Item.Properties().rarity(ModRarities.UNCOMMON)));
+            ()-> new Item(new Item.Properties().rarity(ModRarities.UNCOMMON).food(ADFoods.COSMIC_BEEF_COOKED)));
 
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
             ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue())));
