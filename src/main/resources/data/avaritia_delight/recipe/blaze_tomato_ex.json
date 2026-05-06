@@ -1,0 +1,15 @@
+{
+  "type": "avaritia_delight:crop_extractor",
+  "input": {
+    "item": "avaritia_delight:blaze_tomato"
+  },
+  "output1": {
+    "id": "avaritia_delight:blaze_tomato_seeds",
+    "count": 1
+  },
+  "output2": {
+    "id": "avaritia:blaze_cube",
+    "count": 1
+  },
+  "extraction_time": 200
+}

@@ -1,5 +1,6 @@
 package committee.nova.avaritia_delight.init.compat.jei;
 
+import committee.nova.avaritia_delight.common.crafting.recipe.CropExtractorRecipe;
 import committee.nova.avaritia_delight.init.registry.ADRecipeTypes;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
@@ -29,6 +30,10 @@ public class ADJeiRecipes {
         allRecipes.addAll(recipeManager.getAllRecipesFor(ADRecipeTypes.EXTREME_COOKING.get()));
         allRecipes.addAll(recipeManager.getAllRecipesFor(ModRecipeTypes.COOKING.get()));
         return allRecipes;
+    }
+
+    public List<RecipeHolder<CropExtractorRecipe>> getAllCropExtractorRecipes() {
+        return recipeManager.getAllRecipesFor(ADRecipeTypes.CROP_EXTRACTOR.get());
     }
 
 }

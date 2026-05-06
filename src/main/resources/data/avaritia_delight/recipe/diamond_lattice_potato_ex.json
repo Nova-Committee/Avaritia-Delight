@@ -1,0 +1,11 @@
+{
+  "type": "avaritia_delight:crop_extractor",
+  "input": {
+    "item": "avaritia_delight:diamond_lattice_potato"
+  },
+  "output1": {
+    "id": "avaritia:diamond_lattice",
+    "count": 1
+  },
+  "extraction_time": 200
+}

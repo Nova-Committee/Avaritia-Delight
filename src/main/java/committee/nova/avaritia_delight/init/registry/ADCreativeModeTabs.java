@@ -45,6 +45,7 @@ public class ADCreativeModeTabs {
                 output.accept(ADBlocks.blaze_tomato_crate.get());
                 output.accept(ADBlocks.crystal_cabbage_crate.get());
                 output.accept(ADBlocks.neutronium_hay_bale.get());
+                output.accept(ADBlocks.crop_extractor.get());
                 output.accept(ADBlocks.extreme_stove.get());
                 output.accept(ADBlocks.extreme_cooking_pot.get());
             }).build());

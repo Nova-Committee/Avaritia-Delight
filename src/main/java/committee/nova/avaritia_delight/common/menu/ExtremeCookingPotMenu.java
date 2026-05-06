@@ -47,7 +47,6 @@ public class ExtremeCookingPotMenu extends AbstractContainerMenu
         this.level = playerInventory.player.level();
         this.canInteractWithCallable = ContainerLevelAccess.create(blockEntity.getLevel(), blockEntity.getBlockPos());
 
-        // Ingredient Slots - 2 Rows x 3 Columns
         int startX = 39;
         int startY = 46;
         int inputStartX = 8;

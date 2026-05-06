@@ -1,0 +1,27 @@
+{
+  "type": "avaritia_delight:extreme_cooking",
+
+  "ingredients": [
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "avaritia:enhancement_core"
+    },
+    {
+      "item": "avaritia:neutron_pile"
+    }
+  ],
+  "container": {
+    "id": "minecraft:glass_bottle",
+    "count": 1
+  },
+  "experience": 2.0,
+  "result": {
+    "id": "avaritia_delight:infinity_milk",
+    "count": 1
+  }
+}

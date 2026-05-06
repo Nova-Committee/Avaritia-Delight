@@ -1,6 +1,7 @@
 package committee.nova.avaritia_delight.init.data.provider;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
+import committee.nova.avaritia_delight.common.crafting.recipe.CropExtractorRecipe;
 import committee.nova.avaritia_delight.common.crafting.recipe.EXCookingRecipe;
 import committee.nova.avaritia_delight.common.crafting.recipe.ExtremeCookingPotRecipe;
 import committee.nova.mods.avaritia.common.crafting.recipe.ShapedTableCraftingRecipe;
@@ -22,6 +23,12 @@ public class ADRecipeSerializers {
             SERIALIZERS.register(
                     "ex_cooking",
                     () -> new SimpleCookingSerializer<>(EXCookingRecipe::new, 100)
+            );
+
+    public static final Supplier<RecipeSerializer<CropExtractorRecipe>> CROP_EXTRACTOR =
+            SERIALIZERS.register(
+                    "crop_extractor",
+                    CropExtractorRecipe.Serializer::new
             );
 
 
