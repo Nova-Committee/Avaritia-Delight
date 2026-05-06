@@ -5,6 +5,7 @@ import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.crafting.recipe.CropExtractorRecipe;
 import committee.nova.avaritia_delight.init.compat.jei.ADJeiRecipeTypes;
 import committee.nova.avaritia_delight.init.registry.ADBlocks;
+import committee.nova.avaritia_delight.init.registry.ADRecipeTypes;
 import mezz.jei.api.constants.VanillaTypes;
 import mezz.jei.api.gui.builder.IRecipeLayoutBuilder;
 import mezz.jei.api.gui.builder.ITooltipBuilder;
@@ -25,6 +26,7 @@ import org.jetbrains.annotations.Nullable;
 import vectorwing.farmersdelight.common.utility.TextUtils;
 
 import javax.annotation.ParametersAreNonnullByDefault;
+import java.util.Arrays;
 
 @ParametersAreNonnullByDefault
 @MethodsReturnNonnullByDefault
@@ -39,10 +41,9 @@ public class CropExtractorRecipeCategory implements IRecipeCategory<RecipeHolder
         title = TextUtils.JEI("crop_extractor");
         ResourceLocation widgetBackgroundImage = ResourceLocation.fromNamespaceAndPath(AvaritiaDelight.MOD_ID, "textures/gui/jei/crop_extractor.png");
         ResourceLocation interfaceImage = ResourceLocation.fromNamespaceAndPath(AvaritiaDelight.MOD_ID, "textures/gui/crop_extractor.png");
-        background = helper.createDrawable(widgetBackgroundImage, 0, 0, 176, 166);
+        background = helper.createDrawable(widgetBackgroundImage, 0, 0, 170, 63);
         icon = helper.createDrawableIngredient(VanillaTypes.ITEM_STACK, new ItemStack(ADBlocks.crop_extractor.get()));
-
-        arrow = helper.drawableBuilder(interfaceImage, 177, 47, 26, 17)
+        arrow = helper.drawableBuilder(interfaceImage, 177, 47, 25, 17)
                 .buildAnimated(200, IDrawableAnimated.StartDirection.LEFT, false);
     }
 
@@ -72,7 +73,7 @@ public class CropExtractorRecipeCategory implements IRecipeCategory<RecipeHolder
         CropExtractorRecipe recipe = holder.value();
 
         builder.addSlot(RecipeIngredientRole.INPUT, 36, 21)
-                .addItemStacks(java.util.Arrays.asList(recipe.getInput().getItems()));
+                .addItemStacks(Arrays.asList(recipe.getInput().getItems()));
 
         builder.addSlot(RecipeIngredientRole.OUTPUT, 99, 12)
                 .addItemStack(recipe.getOutput1());
