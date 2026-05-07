@@ -48,6 +48,7 @@ public class ADCreativeModeTabs {
                 output.accept(ADBlocks.crop_extractor.get());
                 output.accept(ADBlocks.extreme_stove.get());
                 output.accept(ADBlocks.extreme_cooking_pot.get());
+                output.accept(ADItems.extreme_skillet.get());
             }).build());
     public static void register(IEventBus bus){
         TABS.register(bus);
