@@ -117,6 +117,30 @@ public class ExtremeSkilletItem extends BlockItem
 
     @Override
     public boolean hurtEnemy(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        if (!attacker.level().isClientSide) {
+
+            double dx = target.getX() - attacker.getX();
+            double dz = target.getZ() - attacker.getZ();
+
+            double length = Math.sqrt(dx * dx + dz * dz);
+            if (length > 0) {
+                dx /= length;
+                dz /= length;
+            }
+
+            double horizontalPower = 2.5D;
+
+            double verticalPower = 1.8D;
+
+            target.push(
+                    dx * horizontalPower,
+                    verticalPower,
+                    dz * horizontalPower
+            );
+
+            target.hurtMarked = true;
+        }
+
         return true;
     }
 
