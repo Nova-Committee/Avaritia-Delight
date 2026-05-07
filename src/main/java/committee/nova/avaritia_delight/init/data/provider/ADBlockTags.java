@@ -32,6 +32,6 @@ public class ADBlockTags extends IntrinsicHolderTagsProvider<Block> {
         tag(ModTags.Blocks.HEAT_SOURCES).add(
                 ADBlocks.extreme_stove.get()
         );
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ADBlocks.extreme_stove.get());
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ADBlocks.extreme_stove.get()).add(ADBlocks.crop_extractor.get());
     }
 }

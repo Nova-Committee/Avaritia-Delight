@@ -1,10 +1,13 @@
 package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
+import committee.nova.avaritia_delight.client.render.ExtremeSkilletRenderer;
 import committee.nova.avaritia_delight.client.render.ExtremeStoveRender;
 import committee.nova.avaritia_delight.common.block.entity.CropExtractorBlockEntity;
 import committee.nova.avaritia_delight.common.block.entity.ExtremeCookingPotBlockEntity;
+import committee.nova.avaritia_delight.common.block.entity.ExtremeSkilletBlockEntity;
 import committee.nova.avaritia_delight.common.block.entity.ExtremeStoveBlockEntity;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -24,9 +27,13 @@ public class ADBlockEntities {
 
     public static final Supplier<BlockEntityType<CropExtractorBlockEntity>> CROP_EXTRACTOR_BE = BLOCK_ENTITIES.register("crop_extractor", () -> BlockEntityType.Builder.of(CropExtractorBlockEntity::new, ADBlocks.crop_extractor.get()).build( null));
 
+    public static final Supplier<BlockEntityType<ExtremeSkilletBlockEntity>> EXTREME_SKILLET_BE = BLOCK_ENTITIES.register("extreme_skillet",
+            () -> BlockEntityType.Builder.of(ExtremeSkilletBlockEntity::new, ADBlocks.extreme_skillet.get()).build(null));
     @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {
         BlockEntityRenderers.register(EXTREME_STOVE_BE.get(), ExtremeStoveRender::new);
+        BlockEntityRenderers.register(EXTREME_SKILLET_BE.get(), ExtremeSkilletRenderer::new);
+
     }
 
     public static void register(IEventBus bus) {

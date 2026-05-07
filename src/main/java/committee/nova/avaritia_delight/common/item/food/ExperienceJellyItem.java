@@ -31,7 +31,7 @@ public class ExperienceJellyItem extends Item {
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
         if (livingEntity instanceof Player player) {
             if (player instanceof ServerPlayer serverPlayer) {
-                int i = this.repairPlayerItems(serverPlayer, 50);
+                int i = this.repairPlayerItems(serverPlayer, 100);
                 if (i > 0) {
                     player.giveExperiencePoints(i);
                 }

@@ -23,6 +23,8 @@ public class ADBlocks {
 
     public static DeferredBlock<Block> crop_extractor = itemBlock("crop_extractor", () -> new CropExtractorBlock(BlockBehaviour.Properties.of().strength(3F, 10F)));
 
+    public static DeferredBlock<Block> extreme_skillet = BLOCKS.register("extreme_skillet", () -> new ExtremeSkilletBlock(BlockBehaviour.Properties.of().strength(3F, 10F)));
+
     public static final DeferredBlock<Block> diamond_lattice_potatoes = itemBlock("diamond_lattice_potatoes",
             () -> new DiamondLatticePotatoBlock(Block.Properties.ofFullCopy(Blocks.POTATOES)));
     public static final DeferredHolder<Block, BlazeTomatoBlock> blaze_tomatoes = itemBlock("blaze_tomatoes",

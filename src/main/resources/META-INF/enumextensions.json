@@ -8,6 +8,15 @@
 				"class": "committee/nova/avaritia_delight/init/registry/ADRarities",
 				"field": "FUNCTION"
 			}
+		},
+		{
+			"enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
+			"name": "AVARITIA_DELIGHT_SKILLET_FLIP",
+			"constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",
+			"parameters": {
+				"class": "committee/nova/avaritia_delight/common/ADEnumParameters",
+				"field": "PROXY_SKILLET_FLIP"
+			}
 		}
 	]
 }

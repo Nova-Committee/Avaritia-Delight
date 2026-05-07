@@ -1,0 +1,24 @@
+{
+  "type": "avaritia:extreme_smithing",
+  "addition": [
+    {
+      "item": "avaritia:extreme_crafting_table"
+    },
+    {
+      "item": "avaritia:enhancement_core"
+    },
+    {
+      "item": "avaritia:star_fuel_block"
+    }
+  ],
+  "base": {
+    "item": "farmersdelight:cooking_pot"
+  },
+  "result": {
+    "id": "avaritia_delight:extreme_cooking_pot",
+    "count": 1
+  },
+  "template": {
+    "item": "avaritia:upgrade_smithing_template"
+  }
+}

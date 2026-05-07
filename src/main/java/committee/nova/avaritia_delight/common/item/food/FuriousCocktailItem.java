@@ -30,7 +30,7 @@ public class FuriousCocktailItem extends Item {
                 MobEffects.INFESTED,
                 MobEffects.WIND_CHARGED,
                 MobEffects.WEAVING
-        ), Integer.MAX_VALUE));
+        ), Integer.MAX_VALUE,true));
     }
 
     @Override

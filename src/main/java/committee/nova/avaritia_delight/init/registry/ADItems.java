@@ -3,6 +3,7 @@ package committee.nova.avaritia_delight.init.registry;
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.item.food.*;
 import committee.nova.avaritia_delight.common.item.tool.AvaritiaKnifeItem;
+import committee.nova.avaritia_delight.common.item.tool.ExtremeSkilletItem;
 import committee.nova.avaritia_delight.common.item.tool.InfinityKnifeItem;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
 import committee.nova.mods.avaritia.init.registry.ModToolTiers;
@@ -25,6 +26,11 @@ public class ADItems {
     public static DeferredItem<Item> infinity_knife = ITEMS.register("infinity_knife",
             ()-> new InfinityKnifeItem(ModToolTiers.INFINITY, new Item.Properties().fireResistant().rarity(ModRarities.COSMIC.getValue()).attributes(InfinityKnifeItem.createAttributes(ModToolTiers.INFINITY, -50, 0))));
 
+    public static DeferredItem<Item> extreme_skillet = ITEMS.register("extreme_skillet",
+            ()-> new ExtremeSkilletItem(ADBlocks.extreme_skillet.get(),new Item.Properties().fireResistant().stacksTo(1).rarity(ModRarities.COSMIC.getValue()).attributes(ExtremeSkilletItem.createAttributes(ModToolTiers.INFINITY, 0, 0))));
+
+
+
     public static DeferredItem<Item> blaze_tomato = ITEMS.register("blaze_tomato",
             ()-> new Item(new Item.Properties().fireResistant().food(ADFoods.CROPS)));
     public static DeferredItem<Item> blaze_tomato_sauce = ITEMS.register("blaze_tomato_sauce",
@@ -45,9 +51,9 @@ public class ADItems {
     public static DeferredItem<Item> neutronium_wheat = ITEMS.register("neutronium_wheat",
             ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
     public static DeferredItem<Item> neutronium_bread = ITEMS.register("neutronium_bread",
-            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.NEUTRONIUM_BREAD)));
     public static DeferredItem<Item> neutronium_wheat_dough = ITEMS.register("neutronium_wheat_dough",
-            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.CROPS)));
 
     public static DeferredItem<Item> cosmic_beef = ITEMS.register("cosmic_beef",
             ()-> new Item(new Item.Properties().food(ADFoods.COSMIC_BEEF)));
@@ -55,7 +61,7 @@ public class ADItems {
             ()-> new Item(new Item.Properties().rarity(ModRarities.UNCOMMON).food(ADFoods.COSMIC_BEEF_COOKED)));
 
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
-            ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue())));
+            ()-> new InfinityAppleItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).stacksTo(1).food(ADFoods.INFINITY_APPLE)));
     public static DeferredItem<Item> furious_cocktail = ITEMS.register("furious_cocktail",
             FuriousCocktailItem::new);
     public static DeferredItem<Item> how_did_we_get_here = ITEMS.register("how_did_we_get_here",

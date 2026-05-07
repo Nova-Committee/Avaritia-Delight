@@ -47,7 +47,7 @@ public class HowDidWeGetHereItem extends Item {
                 MobEffects.WEAVING,
                 MobEffects.TRIAL_OMEN,
                 MobEffects.RAID_OMEN
-        ), Integer.MAX_VALUE));
+        ), Integer.MAX_VALUE,true));
     }
 
     @Override
