@@ -7,9 +7,11 @@ import committee.nova.avaritia_delight.init.registry.ADItems;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.world.InteractionHand;
@@ -36,6 +38,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
@@ -108,6 +111,49 @@ public class ExtremeSkilletItem extends BlockItem
                 livingEntity.getCommandSenderWorld().playSound(null, livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), ModSounds.ITEM_SKILLET_ATTACK_STRONG.get(), SoundSource.PLAYERS, 1.0F, pitch);
             }
         }
+        @SubscribeEvent
+        public static void onEntityTick(net.neoforged.neoforge.event.tick.EntityTickEvent.Post event) {
+            Entity entity = event.getEntity();
+
+            if (!(entity instanceof LivingEntity living)) return;
+            if (entity.level().isClientSide) return;
+
+            var tag = entity.getPersistentData();
+
+            if (!tag.contains("SkilletTrailTicks")) return;
+
+            int ticks = tag.getInt("SkilletTrailTicks");
+
+            if (ticks <= 0 || entity.onGround()) {
+                tag.remove("SkilletTrailTicks");
+                return;
+            }
+
+            tag.putInt("SkilletTrailTicks", ticks - 1);
+
+            if (entity.level() instanceof ServerLevel serverLevel) {
+                Vec3 motion = entity.getDeltaMovement();
+
+                double speed = motion.length();
+                int particleCount = Math.max(2, (int)(speed * 8));
+
+                for (int i = 0; i < particleCount; i++) {
+                    double offsetX = (serverLevel.random.nextDouble() - 0.5D) * entity.getBbWidth();
+                    double offsetY = serverLevel.random.nextDouble() * entity.getBbHeight();
+                    double offsetZ = (serverLevel.random.nextDouble() - 0.5D) * entity.getBbWidth();
+
+                    serverLevel.sendParticles(
+                            ParticleTypes.END_ROD,
+                            entity.getX() + offsetX,
+                            entity.getY() + offsetY,
+                            entity.getZ() + offsetZ,
+                            1,
+                            0, 0, 0,
+                            0
+                    );
+                }
+            }
+        }
     }
 
     @Override
@@ -139,6 +185,7 @@ public class ExtremeSkilletItem extends BlockItem
             );
 
             target.hurtMarked = true;
+            target.getPersistentData().putInt("SkilletTrailTicks", 20);
         }
 
         return true;
