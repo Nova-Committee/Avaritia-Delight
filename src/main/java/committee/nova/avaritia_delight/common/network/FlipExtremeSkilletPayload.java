@@ -8,7 +8,7 @@ import net.minecraft.resources.ResourceLocation;
 import org.jetbrains.annotations.NotNull;
 
 public record FlipExtremeSkilletPayload() implements CustomPacketPayload {
-    public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(AvaritiaDelight.MOD_ID, "flip_skillet");
+    public static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(AvaritiaDelight.MOD_ID, "flip_extreme_skillet");
     public static final FlipExtremeSkilletPayload INSTANCE = new FlipExtremeSkilletPayload();
     public static final Type<FlipExtremeSkilletPayload> TYPE = new Type<>(ID);
     public static final StreamCodec<RegistryFriendlyByteBuf, FlipExtremeSkilletPayload> STREAM_CODEC = StreamCodec.unit(INSTANCE);

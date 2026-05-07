@@ -332,4 +332,9 @@ public class ExtremeSkilletItem extends BlockItem
     public int getEnchantmentValue() {
         return SKILLET_TIER.getEnchantmentValue();
     }
+
+    @Override
+    public boolean isFoil(ItemStack stack) {
+        return false;
+    }
 }

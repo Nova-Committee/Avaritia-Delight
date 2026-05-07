@@ -11,6 +11,8 @@ import committee.nova.avaritia_delight.init.registry.ADMenus;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.client.renderer.item.ItemProperties;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -25,6 +27,7 @@ import net.neoforged.neoforge.client.extensions.common.IClientItemExtensions;
 import net.neoforged.neoforge.client.extensions.common.RegisterClientExtensionsEvent;
 import net.neoforged.neoforge.network.PacketDistributor;
 import org.jetbrains.annotations.NotNull;
+import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 import vectorwing.farmersdelight.common.registry.ModDataComponents;
 
 @EventBusSubscriber(modid = AvaritiaDelight.MOD_ID, value = Dist.CLIENT)
@@ -33,7 +36,9 @@ public class ADClient {
     @SubscribeEvent
     public static void clientSetUp(FMLClientSetupEvent event) {
         ADBlockEntities.onClientSetup();
-
+        event.enqueueWork(() -> ItemProperties.register(ADItems.extreme_skillet.get(), ResourceLocation.withDefaultNamespace("cooking"),
+                (stack, world, entity, s) -> stack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT, ItemStackWrapper.EMPTY).getStack().isEmpty() ? 0 : 1)
+        );
     }
 
     @SubscribeEvent
