@@ -30,6 +30,7 @@ import net.neoforged.neoforge.capabilities.Capabilities;
 import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import net.neoforged.neoforge.items.IItemHandler;
 import net.neoforged.neoforge.items.ItemStackHandler;
+import net.neoforged.neoforge.items.wrapper.RangedWrapper;
 import net.neoforged.neoforge.items.wrapper.RecipeWrapper;
 
 import java.util.Optional;
@@ -45,9 +46,8 @@ public class CropExtractorBlockEntity extends BlockEntity implements MenuProvide
     public static final int INVENTORY_SIZE = 5;
 
     private final ItemStackHandler inventory = createHandler();
-    private final IItemHandler inputHandler = new InputItemHandler(inventory);
-    private final IItemHandler outputHandler = new OutputItemHandler(inventory);
-
+    private final IItemHandler inputHandler = new RangedWrapper(inventory, INPUT_SLOT, INPUT_SLOT + 1);
+    private final IItemHandler outputHandler = new RangedWrapper(inventory, OUTPUT_SLOT_1, OUTPUT_SLOT_4 + 1);
     private int extractionTime;
     private int extractionTimeTotal;
 
@@ -64,10 +64,10 @@ public class CropExtractorBlockEntity extends BlockEntity implements MenuProvide
         event.registerBlockEntity(
                 Capabilities.ItemHandler.BLOCK,
                 ADBlockEntities.CROP_EXTRACTOR_BE.get(),
-                (be, context) -> {
-                    if (context == Direction.UP) {
+                (be, side) -> {
+                    if (side == Direction.UP) {
                         return be.inputHandler;
-                    } else if (context == Direction.DOWN) {
+                    } else if (side == Direction.DOWN) {
                         return be.outputHandler;
                     }
                     return be.inventory;
