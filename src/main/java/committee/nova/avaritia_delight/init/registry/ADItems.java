@@ -5,6 +5,7 @@ import committee.nova.avaritia_delight.common.item.food.*;
 import committee.nova.avaritia_delight.common.item.tool.AvaritiaKnifeItem;
 import committee.nova.avaritia_delight.common.item.tool.ExtremeSkilletItem;
 import committee.nova.avaritia_delight.common.item.tool.InfinityKnifeItem;
+import committee.nova.avaritia_delight.common.item.tool.NeutroniumKnifeItem;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
 import committee.nova.mods.avaritia.init.registry.ModToolTiers;
 import net.minecraft.world.item.Item;
@@ -18,13 +19,14 @@ public class ADItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AvaritiaDelight.MOD_ID);
 
     public static DeferredItem<Item> blaze_knife = ITEMS.register("blaze_knife",
-            ()-> new AvaritiaKnifeItem(ModToolTiers.BLAZE, new Item.Properties().rarity(ModRarities.UNCOMMON).fireResistant().attributes(AvaritiaKnifeItem.createAttributes(ModToolTiers.BLAZE, -13, 0))));
+            ()-> new AvaritiaKnifeItem(ModToolTiers.BLAZE, new Item.Properties().rarity(ModRarities.UNCOMMON).fireResistant().attributes(AvaritiaKnifeItem.createAttributes(ModToolTiers.BLAZE, 0, 0))));
     public static DeferredItem<Item> crystal_knife = ITEMS.register("crystal_knife",
-            ()-> new AvaritiaKnifeItem(ModToolTiers.CRYSTAL, new Item.Properties().fireResistant().rarity(Rarity.EPIC).attributes(AvaritiaKnifeItem.createAttributes(ModToolTiers.CRYSTAL, -30, 0))));
+            ()-> new AvaritiaKnifeItem(ModToolTiers.CRYSTAL, new Item.Properties().fireResistant().rarity(Rarity.EPIC).attributes(AvaritiaKnifeItem.createAttributes(ModToolTiers.CRYSTAL, 0, 0))));
     public static DeferredItem<Item> neutronium_knife = ITEMS.register("neutronium_knife",
-            ()-> new AvaritiaKnifeItem(ModToolTiers.CRYSTAL, new Item.Properties().rarity(Rarity.EPIC).attributes(AvaritiaKnifeItem.createAttributes(ModToolTiers.CRYSTAL, -30, 0))));
+            ()-> new NeutroniumKnifeItem(ModToolTiers.CRYSTAL, new Item.Properties().rarity(Rarity.EPIC).attributes(AvaritiaKnifeItem.createAttributes(ModToolTiers.CRYSTAL, 0, 0))));
     public static DeferredItem<Item> infinity_knife = ITEMS.register("infinity_knife",
-            ()-> new InfinityKnifeItem(ModToolTiers.INFINITY, new Item.Properties().fireResistant().rarity(ModRarities.COSMIC.getValue()).attributes(InfinityKnifeItem.createAttributes(ModToolTiers.INFINITY, -50, 0))));
+            ()-> new InfinityKnifeItem(ModToolTiers.INFINITY, new Item.Properties().fireResistant().rarity(ModRarities.COSMIC.getValue()).attributes(InfinityKnifeItem.createAttributes(ModToolTiers.INFINITY, 0
+                    , 0))));
 
     public static DeferredItem<Item> extreme_skillet = ITEMS.register("extreme_skillet",
             ()-> new ExtremeSkilletItem(ADBlocks.extreme_skillet.get(),new Item.Properties().fireResistant().stacksTo(1).rarity(ModRarities.COSMIC.getValue()).attributes(ExtremeSkilletItem.createAttributes(ModToolTiers.INFINITY, 0, 0))));

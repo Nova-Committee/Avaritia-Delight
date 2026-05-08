@@ -1,0 +1,34 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "I": {
+      "item": "avaritia:infinity_ingot"
+    },
+    "C": {
+      "item": "avaritia:infinity_catalyst"
+    },
+    "N": {
+      "item": "avaritia:neutron_ingot"
+    },
+    "M": {
+      "item": "avaritia:crystal_matrix"
+    }
+  },
+  "pattern": [
+    "      CCI",
+    "    CCCI ",
+    "   CCCI  ",
+    "  CCCI   ",
+    " CCCI    ",
+    " CII     ",
+    "  N      ",
+    " N       ",
+    "M        "
+  ],
+  "result": {
+    "id": "avaritia_delight:infinity_knife",
+    "count": 1
+  },
+  "show_notification": true,
+  "tier": 4
+}

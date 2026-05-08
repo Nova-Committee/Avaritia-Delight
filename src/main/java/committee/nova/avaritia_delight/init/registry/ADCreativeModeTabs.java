@@ -13,7 +13,7 @@ public class ADCreativeModeTabs {
 
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = TABS.register("delight_group", () -> CreativeModeTab.builder()
             .title(Component.translatable("itemGroup.tab.avaritia_delight"))
-            .icon(ADItems.infinity_knife.get()::getDefaultInstance)
+            .icon(ADBlocks.extreme_stove.get().asItem()::getDefaultInstance)
             .displayItems((parameters, output) -> {
                 output.accept(ADItems.blaze_knife.get());
                 output.accept(ADItems.crystal_knife.get());

@@ -1,0 +1,34 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "I": {
+      "item": "avaritia:neutron_ingot"
+    },
+    "B": {
+      "item": "avaritia:neutron"
+    },
+    "F": {
+      "item": "avaritia:star_fuel"
+    },
+    "P": {
+      "item": "avaritia:endest_pearl"
+    }
+  },
+  "pattern": [
+    "      IIB",
+    "    IIIB ",
+    "   IIIB  ",
+    "  IIIB   ",
+    " IIIB    ",
+    " IIB     ",
+    "  F      ",
+    " F       ",
+    "P        "
+  ],
+  "result": {
+    "id": "avaritia_delight:neutronium_knife",
+    "count": 1
+  },
+  "show_notification": true,
+  "tier": 4
+}

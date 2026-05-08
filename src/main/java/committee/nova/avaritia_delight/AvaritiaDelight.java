@@ -20,6 +20,7 @@ public class AvaritiaDelight {
         ADMenus.register(modEventBus);
         ADRecipeTypes.register(modEventBus);
         ADRecipeSerializers.register(modEventBus);
+        ADEffects.register(modEventBus);
     }
 
 }

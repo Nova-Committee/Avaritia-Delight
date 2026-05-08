@@ -42,6 +42,7 @@ import net.minecraft.world.phys.Vec3;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
+import net.neoforged.neoforge.event.tick.EntityTickEvent;
 import vectorwing.farmersdelight.common.item.component.ItemStackWrapper;
 import vectorwing.farmersdelight.common.registry.ModDataComponents;
 import vectorwing.farmersdelight.common.registry.ModSounds;
@@ -112,7 +113,7 @@ public class ExtremeSkilletItem extends BlockItem
             }
         }
         @SubscribeEvent
-        public static void onEntityTick(net.neoforged.neoforge.event.tick.EntityTickEvent.Post event) {
+        public static void onEntityTick(EntityTickEvent.Post event) {
             Entity entity = event.getEntity();
 
             if (!(entity instanceof LivingEntity living)) return;
@@ -143,7 +144,7 @@ public class ExtremeSkilletItem extends BlockItem
                     double offsetZ = (serverLevel.random.nextDouble() - 0.5D) * entity.getBbWidth();
 
                     serverLevel.sendParticles(
-                            ParticleTypes.END_ROD,
+                            ParticleTypes.SOUL_FIRE_FLAME,
                             entity.getX() + offsetX,
                             entity.getY() + offsetY,
                             entity.getZ() + offsetZ,
