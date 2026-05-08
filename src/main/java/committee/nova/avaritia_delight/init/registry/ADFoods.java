@@ -10,15 +10,21 @@ public class ADFoods {
     public static final FoodProperties EXPERIENCE_JELLY = new FoodProperties.Builder()
             .nutrition(2).saturationModifier(0.525F).fast().effect(new MobEffectInstance(MobEffects.JUMP, 600, 0),1).alwaysEdible().build();
     public static final FoodProperties BLAZE_TOMATO_SAUCE = new FoodProperties.Builder()
-            .nutrition(10).saturationModifier(1.0F).build();
+            .nutrition(10).saturationModifier(0.65F).build();
 
     public static final FoodProperties NEUTRONIUM_BREAD = new FoodProperties.Builder()
-            .nutrition(15).saturationModifier(0.575F).effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1200, 0),1).build();
+            .nutrition(7).saturationModifier(0.525F).effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 1200, 0),1).build();
 
     public static final FoodProperties COSMIC_BEEF = new FoodProperties.Builder()
             .nutrition(12).saturationModifier(0.8F).build();
     public static final FoodProperties COSMIC_BEEF_COOKED = new FoodProperties.Builder()
-            .nutrition(15).saturationModifier(1.4F).build();
+            .nutrition(15).saturationModifier(1.25F).build();
+
+    public static final FoodProperties ENDEST_FRIED_EGG = new FoodProperties.Builder()
+            .nutrition(9).saturationModifier(0.75F).build();
+    public static final FoodProperties ENDEST_EGG_SANDWICH = new FoodProperties.Builder()
+            .nutrition(15).saturationModifier(1.0F).effect(new MobEffectInstance(ADEffects.ENDEST, 400, 0),1).build();
+
 
     public static final FoodProperties INFINITY_APPLE = new FoodProperties.Builder()
             .nutrition(20).saturationModifier(1.0F)

@@ -6,6 +6,7 @@ import committee.nova.avaritia_delight.common.ADEnumParameters;
 import committee.nova.avaritia_delight.common.item.tool.ExtremeSkilletItem;
 import committee.nova.avaritia_delight.common.network.FlipExtremeSkilletPayload;
 import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
+import committee.nova.avaritia_delight.init.registry.ADEntities;
 import committee.nova.avaritia_delight.init.registry.ADItems;
 import committee.nova.avaritia_delight.init.registry.ADMenus;
 import net.minecraft.client.Minecraft;
@@ -36,6 +37,7 @@ public class ADClient {
     @SubscribeEvent
     public static void clientSetUp(FMLClientSetupEvent event) {
         ADBlockEntities.onClientSetup();
+        ADEntities.onClientSetup();
         event.enqueueWork(() -> ItemProperties.register(ADItems.extreme_skillet.get(), ResourceLocation.withDefaultNamespace("cooking"),
                 (stack, world, entity, s) -> stack.getOrDefault(ModDataComponents.SKILLET_INGREDIENT, ItemStackWrapper.EMPTY).getStack().isEmpty() ? 0 : 1)
         );

@@ -1,0 +1,31 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "N": {
+      "item": "avaritia:neutron_pile"
+    },
+    "B": {
+      "item": "avaritia_delight:neutronium_bread"
+    },
+    "E": {
+      "item": "avaritia_delight:endest_fried_egg"
+    }
+  },
+  "pattern": [
+    "         ",
+    "         ",
+    "    NN   ",
+    "   NEBN  ",
+    "  NEBEN  ",
+    "  NBEN   ",
+    "   NN    ",
+    "         ",
+    "         "
+  ],
+  "result": {
+    "id": "avaritia_delight:endest_egg_sandwich",
+    "count": 1
+  },
+  "show_notification": true,
+  "tier": 4
+}

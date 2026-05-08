@@ -1,6 +1,7 @@
 package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
+import committee.nova.avaritia_delight.common.effect.EndestEffect;
 import committee.nova.avaritia_delight.common.effect.OverWeightEffect;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -13,6 +14,7 @@ public class ADEffects {
     public static final DeferredRegister<MobEffect> EFFECTS = DeferredRegister.create(BuiltInRegistries.MOB_EFFECT, AvaritiaDelight.MOD_ID);
 
     public static final Holder<MobEffect> OVERWEIGHT = EFFECTS.register("overweight", OverWeightEffect::new);
+    public static final Holder<MobEffect> ENDEST = EFFECTS.register("endest", EndestEffect::new);
 
     public static void register(IEventBus bus){
         EFFECTS.register(bus);

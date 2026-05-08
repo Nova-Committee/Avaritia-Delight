@@ -2,6 +2,7 @@ package committee.nova.avaritia_delight.init.registry;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.item.food.*;
+import committee.nova.avaritia_delight.common.item.misc.EndestEggItem;
 import committee.nova.avaritia_delight.common.item.tool.AvaritiaKnifeItem;
 import committee.nova.avaritia_delight.common.item.tool.ExtremeSkilletItem;
 import committee.nova.avaritia_delight.common.item.tool.InfinityKnifeItem;
@@ -61,6 +62,14 @@ public class ADItems {
             ()-> new Item(new Item.Properties().food(ADFoods.COSMIC_BEEF)));
     public static DeferredItem<Item> cosmic_beef_cooked = ITEMS.register("cosmic_beef_cooked",
             ()-> new Item(new Item.Properties().rarity(ModRarities.UNCOMMON).food(ADFoods.COSMIC_BEEF_COOKED)));
+
+    public static DeferredItem<Item> endest_egg = ITEMS.register("endest_egg",
+            ()-> new EndestEggItem(new Item.Properties().rarity(Rarity.EPIC).stacksTo(16)));
+    public static DeferredItem<Item> endest_fried_egg = ITEMS.register("endest_fried_egg",
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.ENDEST_FRIED_EGG)));
+    public static DeferredItem<Item> endest_egg_sandwich = ITEMS.register("endest_egg_sandwich",
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.ENDEST_EGG_SANDWICH)));
+
 
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
             ()-> new InfinityAppleItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).stacksTo(1).food(ADFoods.INFINITY_APPLE)));

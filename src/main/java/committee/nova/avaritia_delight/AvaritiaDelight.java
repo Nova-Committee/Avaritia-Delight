@@ -6,7 +6,6 @@ import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 
-// The value here should match an entry in the META-INF/neoforge.mods.toml file
 @Mod(AvaritiaDelight.MOD_ID)
 public class AvaritiaDelight {
 
@@ -21,6 +20,7 @@ public class AvaritiaDelight {
         ADRecipeTypes.register(modEventBus);
         ADRecipeSerializers.register(modEventBus);
         ADEffects.register(modEventBus);
+        ADEntities.register(modEventBus);
     }
 
 }

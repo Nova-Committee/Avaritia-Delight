@@ -34,6 +34,9 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.neutronium_bread.get());
                 output.accept(ADItems.cosmic_beef.get());
                 output.accept(ADItems.cosmic_beef_cooked.get());
+                output.accept(ADItems.endest_egg.get());
+                output.accept(ADItems.endest_fried_egg.get());
+                output.accept(ADItems.endest_egg_sandwich.get());
                 output.accept(ADItems.experience_jelly.get());
                 output.accept(ADItems.infinity_apple.get());
                 output.accept(ADItems.furious_cocktail.get());
