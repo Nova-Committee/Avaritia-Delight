@@ -25,6 +25,7 @@
   "item.avaritia_delight.endest_egg_sandwich": "终望三明治",
   "item.avaritia_delight.experience_jelly": "经验果冻",
   "item.avaritia_delight.infinity_apple": "蚀界伊甸之果",
+  "item.avaritia_delight.infinity_flowers_tea": "无尽花茶",
   "item.avaritia_delight.furious_cocktail": "狂乱鸡尾酒",
   "item.avaritia_delight.how_did_we_get_here": "何以至此？",
   "item.avaritia_delight.infinity_milk": "绝净之乳",
@@ -42,6 +43,9 @@
 
   "effect.avaritia_delight.overweight": "超重",
   "effect.avaritia_delight.endest": "终望",
+  "effect.avaritia_delight.flower_fragrance": "花香",
+
+  "message.avaritia_delight.flower_fragrance": "拯救了你",
 
   "farmersdelight.container.extreme_cooking_pot.not_heated": "下方需要热源",
   "farmersdelight.container.extreme_cooking_pot.heated": "已受热",

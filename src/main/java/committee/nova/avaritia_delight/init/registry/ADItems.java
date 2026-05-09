@@ -9,12 +9,21 @@ import committee.nova.avaritia_delight.common.item.tool.InfinityKnifeItem;
 import committee.nova.avaritia_delight.common.item.tool.NeutroniumKnifeItem;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
 import committee.nova.mods.avaritia.init.registry.ModToolTiers;
+import net.minecraft.core.component.DataComponents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.alchemy.PotionContents;
+import net.minecraft.world.item.component.ItemLore;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class ADItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AvaritiaDelight.MOD_ID);
@@ -68,11 +77,25 @@ public class ADItems {
     public static DeferredItem<Item> endest_fried_egg = ITEMS.register("endest_fried_egg",
             ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.ENDEST_FRIED_EGG)));
     public static DeferredItem<Item> endest_egg_sandwich = ITEMS.register("endest_egg_sandwich",
-            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.ENDEST_EGG_SANDWICH)));
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.ENDEST_EGG_SANDWICH).component(DataComponents.LORE,
+                    createEffectLore(
+                    ADFoods.ENDEST_EGG_SANDWICH.effects()
+                            .stream()
+                            .map(FoodProperties.PossibleEffect::effect)
+                            .toList()
+            ))));
 
 
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
             ()-> new InfinityAppleItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).stacksTo(1).food(ADFoods.INFINITY_APPLE)));
+    public static DeferredItem<Item> infinity_flowers_tea = ITEMS.register("infinity_flowers_tea",
+            ()-> new DrinkableItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_FLOWERS_TEA).component(DataComponents.LORE,
+                    createEffectLore(
+                            ADFoods.INFINITY_FLOWERS_TEA.effects()
+                                    .stream()
+                                    .map(FoodProperties.PossibleEffect::effect)
+                                    .toList()
+                    ))));
     public static DeferredItem<Item> furious_cocktail = ITEMS.register("furious_cocktail",
             FuriousCocktailItem::new);
     public static DeferredItem<Item> how_did_we_get_here = ITEMS.register("how_did_we_get_here",
@@ -96,6 +119,20 @@ public class ADItems {
     public static DeferredItem<Item> neutronium_bowl = ITEMS.register("neutronium_bowl",
             ()-> new Item(new Item.Properties()));
 
+    private static ItemLore createEffectLore(List<MobEffectInstance> effects) {
+        List<Component> lore = new ArrayList<>();
+
+        PotionContents.addPotionTooltip(
+                effects,
+                component -> lore.add(
+                        component.copy().withStyle(style -> style.withItalic(false))
+                ),
+                1.0F,
+                20.0F
+        );
+
+        return new ItemLore(lore);
+    }
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);

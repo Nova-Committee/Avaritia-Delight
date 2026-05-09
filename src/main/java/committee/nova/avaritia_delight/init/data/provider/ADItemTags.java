@@ -66,6 +66,7 @@ public class ADItemTags extends IntrinsicHolderTagsProvider<Item> {
                 .add(ADItems.cosmic_beef_cooked.get())
                 .add(ADItems.experience_jelly.get())
                 .add(ADItems.infinity_apple.get())
+                .add(ADItems.infinity_flowers_tea.get())
                 .add(ADItems.furious_cocktail.get())
                 .add(ADItems.how_did_we_get_here.get())
                 .add(ADItems.infinity_milk.get())

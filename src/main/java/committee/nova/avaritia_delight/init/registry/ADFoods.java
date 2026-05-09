@@ -38,6 +38,11 @@ public class ADFoods {
             .alwaysEdible()
             .build();
 
+    public static final FoodProperties INFINITY_FLOWERS_TEA = new FoodProperties.Builder()
+            .nutrition(15).saturationModifier(0.825F)
+            .effect(new MobEffectInstance(ADEffects.FLOWER_FRAGRANCE, EFFECT_TIME, 0), 1)
+            .alwaysEdible()
+            .build();
     public static final FoodProperties CROPS = new FoodProperties.Builder()
             .nutrition(3).saturationModifier(1.0F).build();
 
