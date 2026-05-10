@@ -25,6 +25,9 @@ public class ADFoods {
     public static final FoodProperties ENDEST_EGG_SANDWICH = new FoodProperties.Builder()
             .nutrition(15).saturationModifier(1.0F).effect(new MobEffectInstance(ADEffects.ENDEST, 400, 0),1).build();
 
+    public static final FoodProperties INFINITY_CATALYST_COOKIE = new FoodProperties.Builder()
+            .nutrition(20).saturationModifier(20F)
+            .build();
 
     public static final FoodProperties INFINITY_APPLE = new FoodProperties.Builder()
             .nutrition(20).saturationModifier(1.0F)

@@ -4,6 +4,7 @@ import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.block.ExtremeSkilletBlock;
 import committee.nova.avaritia_delight.common.block.entity.ExtremeSkilletBlockEntity;
 import committee.nova.avaritia_delight.init.registry.ADItems;
+import committee.nova.mods.avaritia.api.iface.item.IUndamageable;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Holder;
@@ -56,7 +57,7 @@ import java.util.Objects;
 import java.util.Optional;
 
 @SuppressWarnings({"deprecation", "unused"})
-public class ExtremeSkilletItem extends BlockItem
+public class ExtremeSkilletItem extends BlockItem implements IUndamageable
 {
     public static final float FLIP_TIME = 12;
 

@@ -1,0 +1,34 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "W": {
+      "item": "avaritia:neutron"
+    },
+    "E": {
+      "item": "avaritia:neutron_ingot"
+    },
+    "C": {
+      "item": "avaritia:crystal_matrix"
+    },
+    "Q": {
+      "item": "avaritia:crystal_matrix_ingot"
+    }
+  },
+  "pattern": [
+    "  CCCCC  ",
+    "  CWEWC  ",
+    "  CEWEC  ",
+    "  CWEWC  ",
+    "  CCWCC  ",
+    "   QCQ   ",
+    "    Q    ",
+    "    Q    ",
+    "    C    "
+  ],
+  "result": {
+    "id": "avaritia_delight:extreme_skillet",
+    "count": 1
+  },
+  "show_notification": true,
+  "tier": 4
+}

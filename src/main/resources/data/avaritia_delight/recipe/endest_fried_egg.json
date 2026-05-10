@@ -1,7 +1,7 @@
 {
   "type": "minecraft:smelting",
   "category": "food",
-  "cookingtime": 1200,
+  "cookingtime": 2400,
   "experience": 0.5,
   "ingredient": {
     "item": "avaritia_delight:endest_egg"

@@ -1,13 +1,12 @@
 {
-  "type": "minecraft:campfire_cooking",
+  "type": "avaritia_delight:ex_cooking",
   "category": "food",
-  "cookingtime": 3600,
-  "experience": 0.5,
   "ingredient": {
     "item": "avaritia_delight:endest_egg"
   },
   "result": {
-    "count": 1,
     "id": "avaritia_delight:endest_fried_egg"
-  }
+  },
+  "experience": 1.0,
+  "cookingtime": 200
 }

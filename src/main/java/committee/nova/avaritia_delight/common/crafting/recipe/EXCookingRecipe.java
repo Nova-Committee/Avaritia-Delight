@@ -2,6 +2,8 @@ package committee.nova.avaritia_delight.common.crafting.recipe;
 
 import committee.nova.avaritia_delight.init.data.provider.ADRecipeSerializers;
 import committee.nova.avaritia_delight.init.registry.ADRecipeTypes;
+import net.minecraft.core.HolderLookup;
+import net.minecraft.core.NonNullList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.crafting.*;
 import org.jetbrains.annotations.NotNull;
@@ -25,6 +27,11 @@ public class EXCookingRecipe extends AbstractCookingRecipe {
                 experience,
                 cookingTime
         );
+    }
+
+    @Override
+    public NonNullList<Ingredient> getIngredients() {
+        return super.getIngredients();
     }
 
     @Override

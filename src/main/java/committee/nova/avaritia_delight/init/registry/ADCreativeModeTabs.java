@@ -38,6 +38,7 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.endest_fried_egg.get());
                 output.accept(ADItems.endest_egg_sandwich.get());
                 output.accept(ADItems.experience_jelly.get());
+                output.accept(ADItems.infinity_catalyst_cookie.get());
                 output.accept(ADItems.infinity_apple.get());
                 output.accept(ADItems.infinity_flowers_tea.get());
                 output.accept(ADItems.furious_cocktail.get());

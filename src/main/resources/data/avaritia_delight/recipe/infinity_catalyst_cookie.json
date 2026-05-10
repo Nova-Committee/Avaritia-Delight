@@ -1,0 +1,31 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "W": {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    "E": {
+      "item": "avaritia:eternal_singularity"
+    },
+    "C": {
+      "item": "avaritia:infinity_catalyst"
+    }
+  },
+  "pattern": [
+    "    W    ",
+    " W  W  W ",
+    "  W W W  ",
+    "    E    ",
+    "WWWECEWWW",
+    "    E    ",
+    "  W W W  ",
+    " W  W  W ",
+    "    W    "
+  ],
+  "result": {
+    "id": "avaritia_delight:infinity_catalyst_cookie",
+    "count": 1
+  },
+  "show_notification": true,
+  "tier": 4
+}

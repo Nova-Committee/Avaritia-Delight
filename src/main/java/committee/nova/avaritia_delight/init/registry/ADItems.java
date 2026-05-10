@@ -39,9 +39,7 @@ public class ADItems {
                     , 0))));
 
     public static DeferredItem<Item> extreme_skillet = ITEMS.register("extreme_skillet",
-            ()-> new ExtremeSkilletItem(ADBlocks.extreme_skillet.get(),new Item.Properties().fireResistant().stacksTo(1).rarity(ModRarities.COSMIC.getValue()).attributes(ExtremeSkilletItem.createAttributes(ModToolTiers.INFINITY, 0, 0))));
-
-
+            ()-> new ExtremeSkilletItem(ADBlocks.extreme_skillet.get(),new Item.Properties().fireResistant().durability(9999).stacksTo(1).rarity(ModRarities.COSMIC.getValue()).attributes(ExtremeSkilletItem.createAttributes(ModToolTiers.INFINITY, 0, 0))));
 
     public static DeferredItem<Item> blaze_tomato = ITEMS.register("blaze_tomato",
             ()-> new Item(new Item.Properties().fireResistant().food(ADFoods.CROPS)));
@@ -85,7 +83,8 @@ public class ADItems {
                             .toList()
             ))));
 
-
+    public static DeferredItem<Item> infinity_catalyst_cookie = ITEMS.register("infinity_catalyst_cookie",
+            ()-> new InfinityCatalystCookieItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_CATALYST_COOKIE)));
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
             ()-> new InfinityAppleItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).stacksTo(1).food(ADFoods.INFINITY_APPLE)));
     public static DeferredItem<Item> infinity_flowers_tea = ITEMS.register("infinity_flowers_tea",
