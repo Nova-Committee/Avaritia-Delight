@@ -47,6 +47,9 @@
   "effect.avaritia_delight.endest": "Endest",
   "effect.avaritia_delight.flower_fragrance": "Flower Fragrance",
 
+  "effect.avaritia_delight.flower_fragrance.description": "攻击目标给对方施加凋零效果。\n\n附近10格的生物会跟随拥有效果的生物。\n\n杀死附近任意实体让拥有效果的实体取消死亡",
+  "effect.avaritia_delight.endest.description": "吸引附近16格生物，靠近后杀死生物",
+
   "message.avaritia_delight.flower_fragrance": "Saved you",
 
   "farmersdelight.container.extreme_cooking_pot.not_heated": "Needs heat from below",

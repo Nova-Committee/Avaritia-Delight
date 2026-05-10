@@ -21,6 +21,7 @@ public class AvaritiaDelight {
         ADRecipeSerializers.register(modEventBus);
         ADEffects.register(modEventBus);
         ADEntities.register(modEventBus);
+        ADLootFunctions.register(modEventBus);
     }
 
 }
