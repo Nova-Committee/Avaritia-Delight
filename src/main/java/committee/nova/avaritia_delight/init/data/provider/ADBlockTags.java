@@ -2,6 +2,7 @@ package committee.nova.avaritia_delight.init.data.provider;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.init.registry.ADBlocks;
+import committee.nova.mods.avaritia.init.data.provider.ModBlockTags;
 import committee.nova.mods.avaritia.init.registry.ModBlocks;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.registries.Registries;
@@ -35,5 +36,10 @@ public class ADBlockTags extends IntrinsicHolderTagsProvider<Block> {
                 ModBlocks.nether_crafting_table.get()
         );
         tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ADBlocks.extreme_stove.get()).add(ADBlocks.crop_extractor.get());
+        tag(committee.nova.mods.avaritia.init.registry.ModTags.EXTREME_ANVIL_UNBREAK)
+                .add(ADBlocks.extreme_stove.get())
+                .add(ADBlocks.extreme_cooking_pot.get())
+                .add(ADBlocks.extreme_skillet.get())
+        ;
     }
 }
