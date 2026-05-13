@@ -73,6 +73,11 @@ public class ADItemTags extends IntrinsicHolderTagsProvider<Item> {
                 .add(ADItems.infinity_milk.get())
                 .add(ADItems.endest_fried_egg.get())
                 .add(ADItems.endest_egg_sandwich.get())
+                .add(ADItems.star_pie_crust.get())
+                .add(ADItems.slice_star_pie.get())
+                .add(ADItems.slice_endest_pie.get())
+                .add(ADItems.record_fragment_cookie.get())
+                .add(ADItems.slice_of_endless_cake.get())
         ;
     }
 }

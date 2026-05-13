@@ -3,11 +3,15 @@ package committee.nova.avaritia_delight.init.registry;
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.client.screen.CropExtractorScreen;
 import committee.nova.avaritia_delight.client.screen.ExtremeCookingPotScreen;
+import committee.nova.avaritia_delight.client.screen.InfinityCabinetScreen;
 import committee.nova.avaritia_delight.common.menu.CropExtractorMenu;
 import committee.nova.avaritia_delight.common.menu.ExtremeCookingPotMenu;
+import committee.nova.avaritia_delight.common.menu.InfinityCabinetMenu;
 import committee.nova.mods.avaritia.client.screen.craft.SculkCraftScreen;
 import committee.nova.mods.avaritia.common.menu.NeutronRingMenu;
 import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.network.RegistryFriendlyByteBuf;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.flag.FeatureFlagSet;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.MenuType;
@@ -28,6 +32,7 @@ public class ADMenus {
     public static void onClientSetup(RegisterMenuScreensEvent event) {
         event.register(extreme_cooking_pot.get(), ExtremeCookingPotScreen::new);
         event.register(crop_extractor.get(), CropExtractorScreen::new);
+        event.register(infinity_cabinet.get(), InfinityCabinetScreen::new);
     }
 
     public static <T extends AbstractContainerMenu> DeferredHolder<MenuType<?>, MenuType<T>> menu(String name, Supplier<? extends MenuType<T>> container) {
@@ -38,6 +43,9 @@ public class ADMenus {
             () -> new MenuType<>((IContainerFactory<ExtremeCookingPotMenu>) ExtremeCookingPotMenu::new, FeatureFlagSet.of()));
     public static DeferredHolder<MenuType<?>, MenuType<CropExtractorMenu>> crop_extractor = menu("crop_extractor",
             () -> new MenuType<>((IContainerFactory<CropExtractorMenu>) CropExtractorMenu::new, FeatureFlagSet.of()));
+
+    public static DeferredHolder<MenuType<?>, MenuType<InfinityCabinetMenu>> infinity_cabinet = menu("infinity_cabinet",
+            () -> new MenuType<>((IContainerFactory<InfinityCabinetMenu>) InfinityCabinetMenu::new, FeatureFlagSet.of()));
 
     public static void register(IEventBus bus){
         MENUS.register(bus);

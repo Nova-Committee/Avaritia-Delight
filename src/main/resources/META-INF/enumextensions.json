@@ -10,6 +10,15 @@
 			}
 		},
 		{
+			"enum": "net/minecraft/world/item/Rarity",
+			"name": "AVARITIA_DELIGHT_COMMEMORATION",
+			"constructor": "(ILjava/lang/String;Lnet/minecraft/ChatFormatting;)V",
+			"parameters": {
+				"class": "committee/nova/avaritia_delight/init/registry/ADRarities",
+				"field": "COMMEMORATION"
+			}
+		},
+		{
 			"enum": "net/minecraft/client/model/HumanoidModel$ArmPose",
 			"name": "AVARITIA_DELIGHT_SKILLET_FLIP",
 			"constructor": "(ZLnet/neoforged/neoforge/client/IArmPoseTransformer;)V",

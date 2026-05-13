@@ -28,7 +28,9 @@ public class ADFoods {
     public static final FoodProperties INFINITY_CATALYST_COOKIE = new FoodProperties.Builder()
             .nutrition(20).saturationModifier(20F)
             .build();
-
+    public static final FoodProperties ENDLESS_CAKE_SLICE = new FoodProperties.Builder()
+            .nutrition(2).saturationModifier(0.1F)
+            .build();
     public static final FoodProperties INFINITY_APPLE = new FoodProperties.Builder()
             .nutrition(20).saturationModifier(1.0F)
             .effect(new MobEffectInstance(MobEffects.REGENERATION, EFFECT_TIME, 1), 1)

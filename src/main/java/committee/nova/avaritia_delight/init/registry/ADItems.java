@@ -83,6 +83,18 @@ public class ADItems {
                             .toList()
             ))));
 
+    public static DeferredItem<Item> star_pie_crust = ITEMS.register("star_pie_crust",
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.CROPS)));
+
+    public static DeferredItem<Item> slice_star_pie = ITEMS.register("slice_of_star_pie",
+            ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.CROPS)));
+
+    public static DeferredItem<Item> slice_endest_pie = ITEMS.register("slice_of_endest_pie",
+            ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.CROPS)));
+
+    public static DeferredItem<Item> slice_of_endless_cake = ITEMS.register("slice_of_endless_cake",
+            ()-> new SliceOfEndlessCakeItem(new Item.Properties().rarity(ADRarities.COMMEMORATION.getValue()).food(ADFoods.ENDLESS_CAKE_SLICE)));
+
     public static DeferredItem<Item> infinity_catalyst_cookie = ITEMS.register("infinity_catalyst_cookie",
             ()-> new InfinityCatalystCookieItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_CATALYST_COOKIE)));
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
@@ -104,6 +116,8 @@ public class ADItems {
 
     public static DeferredItem<Item> experience_jelly = ITEMS.register("experience_jelly",
             ()-> new ExperienceJellyItem(new Item.Properties().rarity(ADRarities.FUNCTION.getValue()).food(ADFoods.EXPERIENCE_JELLY)));
+    public static DeferredItem<Item> record_fragment_cookie = ITEMS.register("record_fragment_cookie",
+            ()-> new RecordFragmentCookieItem(new Item.Properties().food(ADFoods.NEUTRONIUM_BREAD)));
 
 
     public static DeferredItem<Item> blaze_tomato_seeds = ITEMS.register("blaze_tomato_seeds",
