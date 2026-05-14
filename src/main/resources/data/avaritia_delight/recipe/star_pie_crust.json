@@ -1,0 +1,31 @@
+{
+  "type": "avaritia:shaped_table",
+  "key": {
+    "S": {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    "W": {
+      "item": "avaritia:star_fuel"
+    },
+    "M": {
+      "tag": "c:drinks/milk"
+    }
+  },
+  "pattern": [
+    "         ",
+    "         ",
+    "         ",
+    "         ",
+    " SW M WS ",
+    " SSWWWSS ",
+    "  SSSSS  ",
+    "         ",
+    "         "
+  ],
+  "result": {
+    "id": "avaritia_delight:star_pie_crust",
+    "count": 1
+  },
+  "show_notification": true,
+  "tier": 4
+}

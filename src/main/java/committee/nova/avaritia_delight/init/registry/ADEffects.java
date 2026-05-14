@@ -3,6 +3,7 @@ package committee.nova.avaritia_delight.init.registry;
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.common.effect.EndestEffect;
 import committee.nova.avaritia_delight.common.effect.FlowerFragranceEffect;
+import committee.nova.avaritia_delight.common.effect.GravityEffect;
 import committee.nova.avaritia_delight.common.effect.OverWeightEffect;
 import net.minecraft.core.Holder;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -17,6 +18,7 @@ public class ADEffects {
     public static final Holder<MobEffect> OVERWEIGHT = EFFECTS.register("overweight", OverWeightEffect::new);
     public static final Holder<MobEffect> ENDEST = EFFECTS.register("endest", EndestEffect::new);
     public static final Holder<MobEffect> FLOWER_FRAGRANCE = EFFECTS.register("flower_fragrance", FlowerFragranceEffect::new);
+    public static final Holder<MobEffect> GRAVITY = EFFECTS.register("low_gravity", GravityEffect::new);
     public static void register(IEventBus bus){
         EFFECTS.register(bus);
     }

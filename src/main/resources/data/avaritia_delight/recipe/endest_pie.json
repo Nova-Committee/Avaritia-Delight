@@ -1,0 +1,32 @@
+{
+  "type": "avaritia_delight:extreme_cooking",
+
+  "ingredients": [
+    {
+      "item": "avaritia_delight:star_pie_crust"
+    },
+    {
+      "item": "minecraft:honey_bottle"
+    },
+    {
+      "item": "avaritia_delight:endest_egg"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "minecraft:milk_bucket"
+    },
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "avaritia:star_fuel"
+    }
+  ],
+  "experience": 2.0,
+  "result": {
+    "id": "avaritia_delight:endest_pie",
+    "count": 1
+  }
+}

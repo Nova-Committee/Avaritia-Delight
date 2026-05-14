@@ -3,6 +3,7 @@ package committee.nova.avaritia_delight.init.registry;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
+import vectorwing.farmersdelight.common.registry.ModEffects;
 
 public class ADFoods {
     public static final int EFFECT_TIME = 72000;
@@ -28,9 +29,28 @@ public class ADFoods {
     public static final FoodProperties INFINITY_CATALYST_COOKIE = new FoodProperties.Builder()
             .nutrition(20).saturationModifier(20F)
             .build();
+
     public static final FoodProperties ENDLESS_CAKE_SLICE = new FoodProperties.Builder()
             .nutrition(2).saturationModifier(0.1F)
             .build();
+
+    public static final FoodProperties STAR_PIE_SLICE = new FoodProperties.Builder()
+            .nutrition(16).saturationModifier(0.7F)
+            .effect(new MobEffectInstance(ModEffects.NOURISHMENT, EFFECT_TIME, 0), 1)
+            .effect(new MobEffectInstance(ADEffects.GRAVITY, 1200, 0), 1)
+            .build();
+
+    public static final FoodProperties ENDEST_PIE_SLICE = new FoodProperties.Builder()
+            .nutrition(16).saturationModifier(0.7F)
+            .effect(new MobEffectInstance(ModEffects.NOURISHMENT, EFFECT_TIME, 0), 1)
+            .effect(new MobEffectInstance(ADEffects.GRAVITY, 1200, 0), 1)
+            .effect(new MobEffectInstance(ADEffects.ENDEST, 1200, 0), 1)
+            .build();
+
+    public static final FoodProperties STAR_PIE_CRUST = new FoodProperties.Builder()
+            .nutrition(10).saturationModifier(0.65F)
+            .build();
+
     public static final FoodProperties INFINITY_APPLE = new FoodProperties.Builder()
             .nutrition(20).saturationModifier(1.0F)
             .effect(new MobEffectInstance(MobEffects.REGENERATION, EFFECT_TIME, 1), 1)
