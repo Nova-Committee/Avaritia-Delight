@@ -87,10 +87,22 @@ public class ADItems {
             ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.STAR_PIE_CRUST)));
 
     public static DeferredItem<Item> slice_star_pie = ITEMS.register("slice_of_star_pie",
-            ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.STAR_PIE_SLICE)));
+            ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.STAR_PIE_SLICE).component(DataComponents.LORE,
+                    createEffectLore(
+                            ADFoods.STAR_PIE_SLICE.effects()
+                                    .stream()
+                                    .map(FoodProperties.PossibleEffect::effect)
+                                    .toList()
+                    ))));
 
     public static DeferredItem<Item> slice_endest_pie = ITEMS.register("slice_of_endest_pie",
-            ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.ENDEST_PIE_SLICE)));
+            ()-> new Item(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.ENDEST_PIE_SLICE).component(DataComponents.LORE,
+                    createEffectLore(
+                            ADFoods.ENDEST_PIE_SLICE.effects()
+                                    .stream()
+                                    .map(FoodProperties.PossibleEffect::effect)
+                                    .toList()
+                    ))));
 
     public static DeferredItem<Item> slice_of_endless_cake = ITEMS.register("slice_of_endless_cake",
             ()-> new SliceOfEndlessCakeItem(new Item.Properties().rarity(ADRarities.COMMEMORATION.getValue()).food(ADFoods.ENDLESS_CAKE_SLICE)));
