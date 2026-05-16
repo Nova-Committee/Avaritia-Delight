@@ -4,9 +4,12 @@ import committee.nova.avaritia_delight.common.block.InfinityBasketBlock;
 import committee.nova.avaritia_delight.common.menu.InfinityBasketMenu;
 import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
 import committee.nova.avaritia_delight.init.registry.ADBlocks;
+import committee.nova.mods.avaritia.common.component.ClusterContainerContents;
+import committee.nova.mods.avaritia.init.registry.ModDataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.ContainerHelper;
@@ -14,6 +17,7 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.RandomizableContainerBlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.BlockStateProperties;
@@ -24,6 +28,7 @@ import net.neoforged.neoforge.capabilities.RegisterCapabilitiesEvent;
 import vectorwing.farmersdelight.common.block.entity.Basket;
 import vectorwing.farmersdelight.common.block.entity.inventory.BasketInvWrapper;
 
+import java.util.List;
 import java.util.function.BooleanSupplier;
 
 @EventBusSubscriber(modid = "avaritia_delight")
@@ -113,7 +118,7 @@ public class InfinityBasketBlockEntity extends RandomizableContainerBlockEntity 
     }
 
     @Override
-    protected NonNullList<ItemStack> getItems() {
+    public NonNullList<ItemStack> getItems() {
         return this.items;
     }
 
@@ -215,5 +220,27 @@ public class InfinityBasketBlockEntity extends RandomizableContainerBlockEntity 
                     blockEntity.collectItems(level, facing)
             );
         }
+    }
+
+    @Override
+    protected void applyImplicitComponents(BlockEntity.DataComponentInput componentInput) {
+        super.applyImplicitComponents(componentInput);
+
+        NonNullList<ItemStack> itemStacks = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+        componentInput.getOrDefault(ModDataComponents.CLUSTER_CONTAINER, ClusterContainerContents.EMPTY).copyInto(itemStacks);
+
+        if (!itemStacks.isEmpty()) {
+            for (int i = 0; i < itemStacks.size(); i++) {
+                this.items.set(i, itemStacks.get(i));
+            }
+        }
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.Builder builder) {
+        super.collectImplicitComponents(builder);
+
+        List<ItemStack> itemStacks = this.getItems();
+        builder.set(ModDataComponents.CLUSTER_CONTAINER, ClusterContainerContents.fromItems(itemStacks));
     }
 }

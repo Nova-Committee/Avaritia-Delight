@@ -39,8 +39,6 @@ public class SliceOfEndlessCakeItem extends Item {
 
         }
 
-        stack.consume(1, livingEntity);
-
         return stack;
     }
 

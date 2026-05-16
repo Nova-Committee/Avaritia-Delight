@@ -2,8 +2,12 @@ package committee.nova.avaritia_delight.common.block.entity;
 
 import committee.nova.avaritia_delight.common.menu.InfinityCabinetMenu;
 import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
+import committee.nova.mods.avaritia.common.component.ClusterContainerContents;
+import committee.nova.mods.avaritia.init.registry.ModDataComponents;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.NonNullList;
 import net.minecraft.core.Vec3i;
+import net.minecraft.core.component.DataComponentMap;
 import net.minecraft.network.chat.Component;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -14,12 +18,15 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.player.StackedContents;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BarrelBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.entity.ContainerOpenersCounter;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.List;
 
 public class InfinityCabinetBlockEntity extends BlockEntity implements MenuProvider {
 
@@ -133,5 +140,27 @@ public class InfinityCabinetBlockEntity extends BlockEntity implements MenuProvi
         double f = (double) this.worldPosition.getZ() + 0.5 + (double) vec3i.getZ() / 2.0;
         assert this.level != null;
         this.level.playSound(null, d, e, f, soundEvent, SoundSource.BLOCKS, 0.5F, this.level.random.nextFloat() * 0.1F + 0.9F);
+    }
+
+    @Override
+    protected void applyImplicitComponents(BlockEntity.DataComponentInput componentInput) {
+        super.applyImplicitComponents(componentInput);
+
+        NonNullList<ItemStack> itemStacks = NonNullList.withSize(300, ItemStack.EMPTY);
+        componentInput.getOrDefault(ModDataComponents.CLUSTER_CONTAINER, ClusterContainerContents.EMPTY).copyInto(itemStacks);
+
+        if (!itemStacks.isEmpty()) {
+            for (int i = 0; i < itemStacks.size(); i++) {
+                this.cabinet.getItems().set(i, itemStacks.get(i));
+            }
+        }
+    }
+
+    @Override
+    protected void collectImplicitComponents(DataComponentMap.Builder builder) {
+        super.collectImplicitComponents(builder);
+
+        List<ItemStack> itemStacks = this.cabinet.getItems();
+        builder.set(ModDataComponents.CLUSTER_CONTAINER, ClusterContainerContents.fromItems(itemStacks));
     }
 }

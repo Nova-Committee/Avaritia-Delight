@@ -18,7 +18,7 @@ import net.minecraft.world.level.Level;
 public class InfinityFoodItem extends Item {
 
     public InfinityFoodItem(Properties properties) {
-        super(properties);
+        super(properties.stacksTo(1));
     }
 
     @Override

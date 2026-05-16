@@ -5,12 +5,16 @@ import com.google.common.collect.Maps;
 import com.mojang.serialization.MapCodec;
 import committee.nova.avaritia_delight.common.block.entity.InfinityBasketBlockEntity;
 import committee.nova.avaritia_delight.init.registry.ADBlockEntities;
+import committee.nova.mods.avaritia.common.component.ClusterContainerContents;
+import committee.nova.mods.avaritia.common.tile.InfinityChestTile;
+import committee.nova.mods.avaritia.init.registry.ModDataComponents;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.Containers;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.Level;
@@ -94,17 +98,17 @@ public class InfinityBasketBlock extends BaseEntityBlock implements SimpleWaterl
 
     @Override
     public void onRemove(BlockState state, Level level, BlockPos pos, BlockState newState, boolean isMoving) {
-
-        if (state.getBlock() != newState.getBlock()) {
-
-            if (level.getBlockEntity(pos) instanceof InfinityBasketBlockEntity basket) {
-                Containers.dropContents(level, pos, basket);
-                level.updateNeighbourForOutputSignal(pos, this);
+        if (!state.is(newState.getBlock())) {
+            BlockEntity blockEntity = level.getBlockEntity(pos);
+            if (blockEntity instanceof InfinityBasketBlockEntity tile) {
+                ItemStack dropStack = new ItemStack(this);
+                dropStack.set(ModDataComponents.CLUSTER_CONTAINER, ClusterContainerContents.fromItems(tile.getItems()));
+                Block.popResource(level, pos, dropStack);
             }
-
             super.onRemove(state, level, pos, newState, isMoving);
         }
     }
+
 
     @Override
     public BlockState updateShape(BlockState state, Direction facing, BlockState facingState,
