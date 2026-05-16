@@ -43,7 +43,8 @@ public class ADBlocks {
     public static final DeferredBlock<Block> crystal_cabbage_crate = itemBlock("crystal_cabbage_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> neutronium_hay_bale = itemBlock("neutronium_hay_bale", () -> new HayBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK)));
 
-    public static final DeferredBlock<Block> infinity_cabinet = itemBlock("infinity_cabinet", () -> new InfinityCabinetBlock(BlockBehaviour.Properties.of().strength(2.5F).sound(SoundType.GLASS)), ModRarities.LEGEND.getValue());
+    public static final DeferredBlock<Block> infinity_cabinet = itemBlock("infinity_cabinet", () -> new InfinityCabinetBlock(BlockBehaviour.Properties.of().strength(2.5F,2000F).sound(SoundType.GLASS)), ModRarities.LEGEND.getValue());
+    public static final DeferredBlock<Block> infinity_basket = itemBlock("infinity_basket", () -> new InfinityBasketBlock(BlockBehaviour.Properties.of().strength(2.5F,2000F).sound(SoundType.GLASS)), ModRarities.COSMIC.getValue());
 
     public static final DeferredBlock<Block> endest_pie = itemBlock("endest_pie", () -> new PieBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE), ADItems.slice_endest_pie), ModRarities.COSMIC.getValue());
     public static final DeferredBlock<Block> star_pie = itemBlock("star_pie", () -> new PieBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE), ADItems.slice_star_pie), ModRarities.COSMIC.getValue());

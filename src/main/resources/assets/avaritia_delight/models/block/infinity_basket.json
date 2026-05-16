@@ -1,0 +1,9 @@
+{
+  "parent": "farmersdelight:block/template_basket",
+  "textures": {
+    "bottom": "avaritia_delight:block/infinity_basket_bottom",
+    "handle": "avaritia_delight:block/infinity_basket_handle",
+    "side": "avaritia_delight:block/infinity_basket_side",
+    "top": "avaritia_delight:block/infinity_basket_top"
+  }
+}

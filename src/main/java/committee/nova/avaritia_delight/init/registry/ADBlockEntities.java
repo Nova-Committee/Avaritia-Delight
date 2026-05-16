@@ -3,11 +3,7 @@ package committee.nova.avaritia_delight.init.registry;
 import committee.nova.avaritia_delight.AvaritiaDelight;
 import committee.nova.avaritia_delight.client.render.ExtremeSkilletRenderer;
 import committee.nova.avaritia_delight.client.render.ExtremeStoveRender;
-import committee.nova.avaritia_delight.common.block.entity.CropExtractorBlockEntity;
-import committee.nova.avaritia_delight.common.block.entity.ExtremeCookingPotBlockEntity;
-import committee.nova.avaritia_delight.common.block.entity.ExtremeSkilletBlockEntity;
-import committee.nova.avaritia_delight.common.block.entity.ExtremeStoveBlockEntity;
-import committee.nova.avaritia_delight.common.block.entity.InfinityCabinetBlockEntity;
+import committee.nova.avaritia_delight.common.block.entity.*;
 import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.core.registries.BuiltInRegistries;
@@ -33,6 +29,8 @@ public class ADBlockEntities {
 
     public static final Supplier<BlockEntityType<InfinityCabinetBlockEntity>> INFINITY_CABINET_BE = BLOCK_ENTITIES.register("infinity_cabinet",
             () -> BlockEntityType.Builder.of(InfinityCabinetBlockEntity::new, ADBlocks.infinity_cabinet.get()).build(null));
+    public static final Supplier<BlockEntityType<InfinityBasketBlockEntity>> INFINITY_BASKET_BE = BLOCK_ENTITIES.register("infinity_basket",
+            () -> BlockEntityType.Builder.of(InfinityBasketBlockEntity::new, ADBlocks.infinity_basket.get()).build(null));
     @OnlyIn(Dist.CLIENT)
     public static void onClientSetup() {
         BlockEntityRenderers.register(EXTREME_STOVE_BE.get(), ExtremeStoveRender::new);

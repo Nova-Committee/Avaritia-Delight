@@ -3,7 +3,7 @@ package committee.nova.avaritia_delight.common.menu;
 import java.util.Optional;
 import javax.annotation.Nullable;
 
-import committee.nova.avaritia_delight.common.block.entity.InfinityCabinetBlockEntity;
+import committee.nova.avaritia_delight.common.block.entity.InfinityBasketBlockEntity;
 import committee.nova.avaritia_delight.init.registry.ADMenus;
 import committee.nova.mods.avaritia.common.container.slot.InfinitySlot;
 import net.minecraft.core.BlockPos;
@@ -17,25 +17,25 @@ import net.minecraft.world.inventory.ClickType;
 import net.minecraft.world.inventory.Slot;
 import net.minecraft.world.item.ItemStack;
 
-public class InfinityCabinetMenu extends AbstractContainerMenu {
+public class InfinityBasketMenu extends AbstractContainerMenu {
 
-    private final InfinityCabinetBlockEntity tile;
+    private final InfinityBasketBlockEntity tile;
     private final Container container;
 
-    public InfinityCabinetMenu(int id, Inventory inventory, RegistryFriendlyByteBuf buf) {
-        this(id, inventory, (InfinityCabinetBlockEntity) inventory.player.level().getBlockEntity(buf.readBlockPos()));
+    public InfinityBasketMenu(int id, Inventory inventory, RegistryFriendlyByteBuf buf) {
+        this(id, inventory, (InfinityBasketBlockEntity) inventory.player.level().getBlockEntity(buf.readBlockPos()));
     }
 
-    public InfinityCabinetMenu(int id, Inventory inventory, InfinityCabinetBlockEntity tile) {
-        super(ADMenus.infinity_cabinet.get(), id);
+    public InfinityBasketMenu(int id, Inventory inventory, InfinityBasketBlockEntity tile) {
+        super(ADMenus.infinity_basket.get(), id);
         this.tile = tile;
-        this.container = tile.cabinet;
+        this.container = tile;
         this.container.startOpen(inventory.player);
 
         int y;
         for (y = 0; y < 9; y++) {
             for (int i = 0; i < 27; i++) {
-                this.addSlot(new InfinitySlot(container, i + y * 27, 8 + i * 18, 18 + y * 18));
+                this.addSlot(new InfinitySlot(this.container, i + y * 27, 8 + i * 18, 18 + y * 18));
             }
         }
 
@@ -49,7 +49,7 @@ public class InfinityCabinetMenu extends AbstractContainerMenu {
         }
     }
 
-    public InfinityCabinetBlockEntity getTile() {
+    public InfinityBasketBlockEntity getTile() {
         return this.tile;
     }
 

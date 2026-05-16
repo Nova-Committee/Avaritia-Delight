@@ -55,8 +55,6 @@ public class ADItems {
             ()-> new Item(new Item.Properties().food(ADFoods.CROPS)));
     public static DeferredItem<Item> crystal_cabbage = ITEMS.register("crystal_cabbage",
             ()-> new Item(new Item.Properties().food(ADFoods.CROPS)));
-    public static DeferredItem<Item> raw_crystal_pasta = ITEMS.register("raw_crystal_pasta",
-            ()-> new Item(new Item.Properties()));
 
     public static DeferredItem<Item> neutronium_wheat = ITEMS.register("neutronium_wheat",
             ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
@@ -107,10 +105,18 @@ public class ADItems {
     public static DeferredItem<Item> slice_of_endless_cake = ITEMS.register("slice_of_endless_cake",
             ()-> new SliceOfEndlessCakeItem(new Item.Properties().rarity(ADRarities.COMMEMORATION.getValue()).food(ADFoods.ENDLESS_CAKE_SLICE)));
 
+    public static DeferredItem<Item> infinity_fries = ITEMS.register("infinity_fries",
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.INFINITY_FRIES)));
+    public static DeferredItem<Item> infinity_salad = ITEMS.register("infinity_salad",
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.INFINITY_SALAD)));
+    public static DeferredItem<Item> infinity_taco = ITEMS.register("infinity_taco",
+            ()-> new InfinityFoodItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_TACO)));
+    public static DeferredItem<Item> infinity_large_hamburger = ITEMS.register("infinity_large_hamburger",
+            ()-> new InfinityFoodItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_LARGE_HAMBURGER)));
     public static DeferredItem<Item> infinity_catalyst_cookie = ITEMS.register("infinity_catalyst_cookie",
             ()-> new InfinityCatalystCookieItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_CATALYST_COOKIE)));
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
-            ()-> new InfinityAppleItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).stacksTo(1).food(ADFoods.INFINITY_APPLE)));
+            ()-> new InfinityFoodItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).stacksTo(1).food(ADFoods.INFINITY_APPLE)));
     public static DeferredItem<Item> infinity_flowers_tea = ITEMS.register("infinity_flowers_tea",
             ()-> new DrinkableItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_FLOWERS_TEA).component(DataComponents.LORE,
                     createEffectLore(

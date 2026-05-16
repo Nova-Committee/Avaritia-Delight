@@ -27,7 +27,6 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.crystal_cabbage_seeds.get());
                 output.accept(ADItems.crystal_cabbage.get());
                 output.accept(ADItems.crystal_cabbage_leaf.get());
-                output.accept(ADItems.raw_crystal_pasta.get());
                 output.accept(ADItems.neutronium_wheat_seeds.get());
                 output.accept(ADItems.neutronium_wheat.get());
                 output.accept(ADItems.neutronium_wheat_dough.get());
@@ -45,7 +44,11 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.record_fragment_cookie.get());
                 output.accept(ADItems.experience_jelly.get());
                 output.accept(ADItems.slice_of_endless_cake.get());
+                output.accept(ADItems.infinity_fries.get());
+                output.accept(ADItems.infinity_salad.get());
+                output.accept(ADItems.infinity_taco.get());
                 output.accept(ADItems.infinity_catalyst_cookie.get());
+                output.accept(ADItems.infinity_large_hamburger.get());
                 output.accept(ADItems.infinity_apple.get());
                 output.accept(ADItems.infinity_flowers_tea.get());
                 output.accept(ADItems.furious_cocktail.get());
@@ -59,6 +62,7 @@ public class ADCreativeModeTabs {
                 output.accept(ADBlocks.neutronium_hay_bale.get());
                 output.accept(ADBlocks.crop_extractor.get());
                 output.accept(ADBlocks.infinity_cabinet.get());
+                output.accept(ADBlocks.infinity_basket.get());
                 output.accept(ADBlocks.extreme_stove.get());
                 output.accept(ADBlocks.extreme_cooking_pot.get());
                 output.accept(ADItems.extreme_skillet.get());

@@ -1,0 +1,24 @@
+{
+  "type": "avaritia:extreme_smithing",
+  "addition": [
+    {
+      "item": "avaritia:neutron"
+    },
+    {
+      "item": "avaritia:enhancement_core"
+    },
+    {
+      "item": "avaritia:infinity"
+    }
+  ],
+  "base": {
+    "item": "farmersdelight:wooden_basket"
+  },
+  "result": {
+    "id": "avaritia_delight:infinity_basket",
+    "count": 1
+  },
+  "template": {
+    "item": "avaritia:upgrade_smithing_template"
+  }
+}

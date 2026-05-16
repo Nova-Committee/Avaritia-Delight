@@ -1,0 +1,37 @@
+{
+  "type": "avaritia_delight:extreme_cooking",
+  "ingredients": [
+    {
+      "item": "avaritia_delight:blaze_tomato"
+    },
+    {
+      "item": "avaritia_delight:crystal_cabbage_leaf"
+    },
+    {
+      "item": "avaritia_delight:diamond_lattice_fries"
+    },
+    {
+      "item": "avaritia_delight:crystal_cabbage"
+    },
+    {
+      "item": "avaritia_delight:diamond_lattice_potato"
+    },
+    {
+      "item": "avaritia_delight:neutronium_wheat"
+    },
+    {
+      "item": "avaritia_delight:blaze_tomato_sauce"
+    },
+    {
+      "item": "avaritia:neutron_nugget"
+    }
+  ],
+  "container": {
+    "id": "avaritia_delight:neutronium_bowl",
+    "count": 1
+  },
+  "result": {
+    "id": "avaritia_delight:infinity_salad",
+    "count": 1
+  }
+}
