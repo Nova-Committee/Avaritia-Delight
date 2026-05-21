@@ -41,5 +41,11 @@ public class ADBlockTags extends IntrinsicHolderTagsProvider<Block> {
                 .add(ADBlocks.extreme_cooking_pot.get())
                 .add(ADBlocks.extreme_skillet.get())
         ;
+        tag(committee.nova.mods.avaritia.init.registry.ModTags.EXTREME_ANVIL_UNBREAK)
+                .add(ADBlocks.extreme_stove.get())
+                .add(ADBlocks.extreme_cooking_pot.get())
+                .add(ADBlocks.extreme_skillet.get())
+                .add(ADBlocks.crop_extractor.get())
+        ;
     }
 }

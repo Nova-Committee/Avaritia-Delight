@@ -15,18 +15,25 @@ import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.ItemLore;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.neoforge.registries.DeferredItem;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import vectorwing.farmersdelight.common.item.ConsumableItem;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class ADItems {
     public static final DeferredRegister.Items ITEMS = DeferredRegister.createItems(AvaritiaDelight.MOD_ID);
+
+    public static DeferredItem<Item> neutronium_pot = ITEMS.register("neutronium_pot",
+            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
+    public static DeferredItem<Item> neutronium_bowl = ITEMS.register("neutronium_bowl",
+            ()-> new Item(new Item.Properties()));
 
     public static DeferredItem<Item> blaze_knife = ITEMS.register("blaze_knife",
             ()-> new AvaritiaKnifeItem(ModToolTiers.BLAZE, new Item.Properties().rarity(ModRarities.UNCOMMON).fireResistant().attributes(AvaritiaKnifeItem.createAttributes(ModToolTiers.BLAZE, 0, 0))));
@@ -106,9 +113,9 @@ public class ADItems {
             ()-> new SliceOfEndlessCakeItem(new Item.Properties().rarity(ADRarities.COMMEMORATION.getValue()).food(ADFoods.ENDLESS_CAKE_SLICE)));
 
     public static DeferredItem<Item> infinity_fries = ITEMS.register("infinity_fries",
-            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.INFINITY_FRIES)));
+            ()-> new ConsumableItem(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.INFINITY_FRIES).craftRemainder(ADItems.neutronium_bowl.get())));
     public static DeferredItem<Item> infinity_salad = ITEMS.register("infinity_salad",
-            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.INFINITY_SALAD)));
+            ()-> new ConsumableItem(new Item.Properties().rarity(Rarity.EPIC).food(ADFoods.INFINITY_SALAD).craftRemainder(ADItems.neutronium_bowl.get())));
     public static DeferredItem<Item> infinity_taco = ITEMS.register("infinity_taco",
             ()-> new InfinityFoodItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_TACO)));
     public static DeferredItem<Item> infinity_large_hamburger = ITEMS.register("infinity_large_hamburger",
@@ -145,10 +152,6 @@ public class ADItems {
     public static DeferredItem<Item> crystal_cabbage_seeds = ITEMS.register("crystal_cabbage_seeds",
             ()-> new ItemNameBlockItem(ADBlocks.crystal_cabbages.get(),new Item.Properties()));
 
-    public static DeferredItem<Item> neutronium_pot = ITEMS.register("neutronium_pot",
-            ()-> new Item(new Item.Properties().rarity(Rarity.EPIC)));
-    public static DeferredItem<Item> neutronium_bowl = ITEMS.register("neutronium_bowl",
-            ()-> new Item(new Item.Properties()));
 
     private static ItemLore createEffectLore(List<MobEffectInstance> effects) {
         List<Component> lore = new ArrayList<>();
@@ -164,6 +167,7 @@ public class ADItems {
 
         return new ItemLore(lore);
     }
+
 
     public static void register(IEventBus bus){
         ITEMS.register(bus);

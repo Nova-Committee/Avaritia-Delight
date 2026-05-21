@@ -1,5 +1,6 @@
 package committee.nova.avaritia_delight.common.item.food;
 
+import committee.nova.avaritia_delight.init.registry.ADItems;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
@@ -14,9 +15,16 @@ public class BlazeTomatoSauceItem extends Item {
 
     @Override
     public ItemStack finishUsingItem(ItemStack stack, Level level, LivingEntity livingEntity) {
-        if (livingEntity instanceof ServerPlayer player){
-            player.setRemainingFireTicks(20);
+        if (livingEntity instanceof ServerPlayer player) {
+            livingEntity.setRemainingFireTicks(20);
+
+            ItemStack container = new ItemStack(ADItems.neutronium_bowl.get());
+
+            if (!player.addItem(container)) {
+                player.spawnAtLocation(container, 0.1F);
+            }
         }
+
         return super.finishUsingItem(stack, level, livingEntity);
     }
 
