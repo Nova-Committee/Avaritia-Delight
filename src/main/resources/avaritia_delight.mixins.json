@@ -4,6 +4,7 @@
   "package": "committee.nova.avaritia_delight.init.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ModItemsMixin",
     "StoveAccessor"
   ],
   "client": [

@@ -1,0 +1,32 @@
+{
+  "type": "avaritia_delight:extreme_cooking",
+
+  "ingredients": [
+    {
+      "tag": "avaritia:singularity"
+    },
+    {
+      "item": "avaritia:cosmic_meatballs"
+    },
+    {
+      "tag": "avaritia:singularity"
+    },
+    {
+      "item": "avaritia:ultimate_stew"
+    },
+    {
+      "tag": "avaritia:singularity"
+    },
+    {
+      "item": "avaritia:neutron_nugget"
+    }
+  ],
+  "container": {
+    "id": "avaritia_delight:neutronium_pot",
+    "count": 1
+  },
+  "result": {
+    "id": "avaritia_delight:ultimate_stew",
+    "count": 1
+  }
+}

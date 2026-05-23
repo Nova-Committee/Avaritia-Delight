@@ -127,8 +127,8 @@ public class ADItems {
 
     public static DeferredItem<Item> mobs_stew = ITEMS.register("mobs_stew",
             () -> new InfinityBlockFoodItem(ADBlocks.mobs_stew.get(), new Item.Properties().food(ADFoods.MOBS_STEW).rarity(ModRarities.COSMIC.getValue())));
-    public static DeferredItem<Item> ultimate_stew = ITEMS.register("ultimate_stew",
-            () -> new InfinityBlockFoodItem(ADBlocks.ultimate_stew.get(), new Item.Properties().food(ADFoods.ULTIMATE_STEW).rarity(ModRarities.COSMIC.getValue())));
+    public static DeferredItem<Item> ultimate_gourmet_stew = ITEMS.register("ultimate_gourmet_stew",
+            () -> new InfinityBlockFoodItem(ADBlocks.ultimate_gourmet_stew.get(), new Item.Properties().food(ADFoods.ULTIMATE_GOURMET_STEW).rarity(ModRarities.COSMIC.getValue())));
 
     public static DeferredItem<Item> infinity_flowers_tea = ITEMS.register("infinity_flowers_tea",
             ()-> new DrinkableItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_FLOWERS_TEA).component(DataComponents.LORE,

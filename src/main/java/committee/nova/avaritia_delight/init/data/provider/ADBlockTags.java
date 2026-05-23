@@ -40,6 +40,7 @@ public class ADBlockTags extends IntrinsicHolderTagsProvider<Block> {
         tag(BlockTags.MINEABLE_WITH_PICKAXE)
                 .add(ADBlocks.extreme_stove.get())
                 .add(ADBlocks.crop_extractor.get())
+                .add(ADBlocks.ultimate_gourmet_stew.get())
                 .add(ADBlocks.ultimate_stew.get())
                 .add(ADBlocks.mobs_stew.get())
         ;

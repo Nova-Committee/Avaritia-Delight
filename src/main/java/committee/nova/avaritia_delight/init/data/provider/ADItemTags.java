@@ -71,7 +71,7 @@ public class ADItemTags extends IntrinsicHolderTagsProvider<Item> {
                 .add(ADItems.infinity_catalyst_cookie.get())
                 .add(ADItems.infinity_large_hamburger.get())
                 .add(ADItems.infinity_apple.get())
-                .add(ADItems.ultimate_stew.get().asItem())
+                .add(ADItems.ultimate_gourmet_stew.get().asItem())
                 .add(ADItems.mobs_stew.get().asItem())
                 .add(ADItems.infinity_flowers_tea.get())
                 .add(ADItems.furious_cocktail.get())

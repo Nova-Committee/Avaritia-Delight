@@ -11,11 +11,11 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "avaritia:ultimate_stew"
+          "name": "avaritia_delight:ultimate_gourmet_stew"
         }
       ],
       "rolls": 1.0
     }
   ],
-  "random_sequence": "avaritia_delght:blocks/ultimate_stew"
+  "random_sequence": "avaritia_delight:blocks/ultimate_gourmet_stew"
 }

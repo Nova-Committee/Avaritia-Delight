@@ -107,7 +107,7 @@ public class ADFoods {
             .effect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, EFFECT_TIME, 0), 1)
             .build();
 
-    public static final FoodProperties ULTIMATE_STEW = new FoodProperties.Builder()
+    public static final FoodProperties ULTIMATE_GOURMET_STEW = new FoodProperties.Builder()
             .nutrition(15).saturationModifier(14F)
             .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, EFFECT_TIME, 4), 1).effect(
                     () -> new MobEffectInstance(MobEffects.DIG_SPEED, EFFECT_TIME, 2), 1).effect(

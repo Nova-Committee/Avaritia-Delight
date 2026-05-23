@@ -51,7 +51,7 @@ public class ADCreativeModeTabs {
                 output.accept(ADItems.infinity_large_hamburger.get());
                 output.accept(ADItems.infinity_apple.get());
                 output.accept(ADItems.mobs_stew.get());
-                output.accept(ADItems.ultimate_stew.get());
+                output.accept(ADItems.ultimate_gourmet_stew.get());
                 output.accept(ADItems.infinity_flowers_tea.get());
                 output.accept(ADItems.furious_cocktail.get());
                 output.accept(ADItems.how_did_we_get_here.get());

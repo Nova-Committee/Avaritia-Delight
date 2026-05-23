@@ -1,6 +1,7 @@
 {
+	"format_version": "1.21.11",
 	"credit": "Made with Blockbench",
-	"texture_size": [128, 128],
+	"texture_size": [32, 32],
 	"textures": {
 		"2": "avaritia_delight:block/ultimate_stew",
 		"4": "avaritia_delight:block/ultimate_stew_in",
@@ -128,12 +129,12 @@
 			"to": [13, 12, 13],
 			"rotation": {"angle": 0, "axis": "y", "origin": [6, 0, 4]},
 			"faces": {
-				"north": {"uv": [4.375, 2.375, 5.625, 2.375], "texture": "#4"},
-				"east": {"uv": [3.125, 2.375, 4.375, 2.375], "texture": "#4"},
-				"south": {"uv": [6.875, 2.375, 8.125, 2.375], "texture": "#4"},
-				"west": {"uv": [5.625, 2.375, 6.875, 2.375], "texture": "#4"},
-				"up": {"uv": [5.625, 2.375, 4.375, 1.125], "texture": "#4"},
-				"down": {"uv": [6.875, 1.125, 5.625, 2.375], "texture": "#4"}
+				"north": {"uv": [10.5, 5, 15.5, 5], "texture": "#4"},
+				"east": {"uv": [5.5, 5, 10.5, 5], "texture": "#4"},
+				"south": {"uv": [20.5, 5, 25.5, 5], "texture": "#4"},
+				"west": {"uv": [15.5, 5, 20.5, 5], "texture": "#4"},
+				"up": {"uv": [3.33333, 3.33333, 0, 0], "texture": "#4"},
+				"down": {"uv": [16, 0, 11, 5], "texture": "#4"}
 			}
 		}
 	],

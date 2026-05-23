@@ -5,7 +5,6 @@ import committee.nova.avaritia_delight.common.block.*;
 import committee.nova.mods.avaritia.init.registry.ModRarities;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.Rarity;
 import net.minecraft.world.level.block.*;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.neoforged.bus.api.IEventBus;
@@ -29,8 +28,9 @@ public class ADBlocks {
 
     public static DeferredBlock<Block> mobs_stew = BLOCKS.register("mobs_stew", () -> new MobsStewBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).strength(2.0F, 3.0F)));
 
-    public static DeferredBlock<Block> ultimate_stew = BLOCKS.register("ultimate_stew", () -> new UltimateStewBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).strength(2.0F, 3.0F)));
+    public static DeferredBlock<Block> ultimate_gourmet_stew = BLOCKS.register("ultimate_gourmet_stew", () -> new UltimateGourmetStewBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).strength(2.0F, 3.0F)));
 
+    public static DeferredBlock<Block> ultimate_stew = BLOCKS.register("ultimate_stew", () -> new UltimateStewBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).strength(2.0F, 3.0F)));
 
 
     public static final DeferredBlock<Block> diamond_lattice_potatoes = itemBlock("diamond_lattice_potatoes",
