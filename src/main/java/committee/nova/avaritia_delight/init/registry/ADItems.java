@@ -13,9 +13,9 @@ import net.minecraft.core.component.DataComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.food.FoodProperties;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemNameBlockItem;
-import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import net.minecraft.world.item.alchemy.PotionContents;
 import net.minecraft.world.item.component.ItemLore;
@@ -121,9 +121,15 @@ public class ADItems {
     public static DeferredItem<Item> infinity_large_hamburger = ITEMS.register("infinity_large_hamburger",
             ()-> new InfinityFoodItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_LARGE_HAMBURGER)));
     public static DeferredItem<Item> infinity_catalyst_cookie = ITEMS.register("infinity_catalyst_cookie",
-            ()-> new InfinityCatalystCookieItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_CATALYST_COOKIE)));
+            ()-> new InfinityCatalystCookieItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_CATALYST_COOKIE).stacksTo(1)));
     public static DeferredItem<Item> infinity_apple = ITEMS.register("infinity_apple",
             ()-> new InfinityFoodItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).stacksTo(1).food(ADFoods.INFINITY_APPLE)));
+
+    public static DeferredItem<Item> mobs_stew = ITEMS.register("mobs_stew",
+            () -> new InfinityBlockFoodItem(ADBlocks.mobs_stew.get(), new Item.Properties().food(ADFoods.MOBS_STEW).rarity(ModRarities.COSMIC.getValue())));
+    public static DeferredItem<Item> ultimate_stew = ITEMS.register("ultimate_stew",
+            () -> new InfinityBlockFoodItem(ADBlocks.ultimate_stew.get(), new Item.Properties().food(ADFoods.ULTIMATE_STEW).rarity(ModRarities.COSMIC.getValue())));
+
     public static DeferredItem<Item> infinity_flowers_tea = ITEMS.register("infinity_flowers_tea",
             ()-> new DrinkableItem(new Item.Properties().rarity(ModRarities.COSMIC.getValue()).food(ADFoods.INFINITY_FLOWERS_TEA).component(DataComponents.LORE,
                     createEffectLore(

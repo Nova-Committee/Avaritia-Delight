@@ -33,9 +33,16 @@ public class ADBlockTags extends IntrinsicHolderTagsProvider<Block> {
     protected void addTags(HolderLookup.Provider provider) {
         tag(ModTags.Blocks.HEAT_SOURCES).add(
                 ADBlocks.extreme_stove.get(),
+                ADBlocks.mobs_stew.get(),
                 ModBlocks.nether_crafting_table.get()
         );
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(ADBlocks.extreme_stove.get()).add(ADBlocks.crop_extractor.get());
+
+        tag(BlockTags.MINEABLE_WITH_PICKAXE)
+                .add(ADBlocks.extreme_stove.get())
+                .add(ADBlocks.crop_extractor.get())
+                .add(ADBlocks.ultimate_stew.get())
+                .add(ADBlocks.mobs_stew.get())
+        ;
         tag(committee.nova.mods.avaritia.init.registry.ModTags.EXTREME_ANVIL_UNBREAK)
                 .add(ADBlocks.extreme_stove.get())
                 .add(ADBlocks.extreme_cooking_pot.get())

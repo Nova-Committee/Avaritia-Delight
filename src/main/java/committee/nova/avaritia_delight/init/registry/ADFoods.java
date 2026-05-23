@@ -95,7 +95,33 @@ public class ADFoods {
     public static final FoodProperties CROPS = new FoodProperties.Builder()
             .nutrition(3).saturationModifier(1.0F).build();
 
+    public static final FoodProperties MOBS_STEW = new FoodProperties.Builder()
+            .nutrition(15).saturationModifier(14F)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, EFFECT_TIME, 2), 1)
+            .effect(new MobEffectInstance(MobEffects.FIRE_RESISTANCE, EFFECT_TIME, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, EFFECT_TIME, 2), 1)
+            .effect(new MobEffectInstance(MobEffects.NIGHT_VISION, EFFECT_TIME, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.WATER_BREATHING, EFFECT_TIME, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.ABSORPTION, EFFECT_TIME, 1), 1)
+            .effect(new MobEffectInstance(MobEffects.JUMP, EFFECT_TIME, 0), 1)
+            .effect(new MobEffectInstance(MobEffects.HERO_OF_THE_VILLAGE, EFFECT_TIME, 0), 1)
+            .build();
 
+    public static final FoodProperties ULTIMATE_STEW = new FoodProperties.Builder()
+            .nutrition(15).saturationModifier(14F)
+            .effect(() -> new MobEffectInstance(MobEffects.DAMAGE_BOOST, EFFECT_TIME, 4), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.DIG_SPEED, EFFECT_TIME, 2), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.MOVEMENT_SPEED, EFFECT_TIME, 2), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.JUMP, EFFECT_TIME, 2), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.FIRE_RESISTANCE, EFFECT_TIME, 0), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, EFFECT_TIME, 1), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.ABSORPTION, EFFECT_TIME, 2), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.NIGHT_VISION, EFFECT_TIME, 0), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.WATER_BREATHING, EFFECT_TIME, 2), 1).effect(
+                    () -> new MobEffectInstance(MobEffects.REGENERATION, EFFECT_TIME, 4), 1).alwaysEdible()
+
+
+            .build();
 
 }
 

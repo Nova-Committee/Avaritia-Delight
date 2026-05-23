@@ -1,6 +1,7 @@
 package committee.nova.avaritia_delight.init.data.provider;
 
 import committee.nova.avaritia_delight.AvaritiaDelight;
+import committee.nova.avaritia_delight.init.registry.ADBlocks;
 import committee.nova.avaritia_delight.init.registry.ADItems;
 import committee.nova.avaritia_delight.init.registry.ADTags;
 import net.minecraft.core.HolderLookup;
@@ -70,6 +71,8 @@ public class ADItemTags extends IntrinsicHolderTagsProvider<Item> {
                 .add(ADItems.infinity_catalyst_cookie.get())
                 .add(ADItems.infinity_large_hamburger.get())
                 .add(ADItems.infinity_apple.get())
+                .add(ADItems.ultimate_stew.get().asItem())
+                .add(ADItems.mobs_stew.get().asItem())
                 .add(ADItems.infinity_flowers_tea.get())
                 .add(ADItems.furious_cocktail.get())
                 .add(ADItems.how_did_we_get_here.get())

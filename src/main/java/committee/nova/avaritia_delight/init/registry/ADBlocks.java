@@ -27,6 +27,12 @@ public class ADBlocks {
 
     public static DeferredBlock<Block> extreme_skillet = BLOCKS.register("extreme_skillet", () -> new ExtremeSkilletBlock(BlockBehaviour.Properties.of().strength(3F, 10F)));
 
+    public static DeferredBlock<Block> mobs_stew = BLOCKS.register("mobs_stew", () -> new MobsStewBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).strength(2.0F, 3.0F)));
+
+    public static DeferredBlock<Block> ultimate_stew = BLOCKS.register("ultimate_stew", () -> new UltimateStewBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAULDRON).strength(2.0F, 3.0F)));
+
+
+
     public static final DeferredBlock<Block> diamond_lattice_potatoes = itemBlock("diamond_lattice_potatoes",
             () -> new DiamondLatticePotatoBlock(Block.Properties.ofFullCopy(Blocks.POTATOES)));
     public static final DeferredHolder<Block, BlazeTomatoBlock> blaze_tomatoes = itemBlock("blaze_tomatoes",
@@ -43,11 +49,11 @@ public class ADBlocks {
     public static final DeferredBlock<Block> crystal_cabbage_crate = itemBlock("crystal_cabbage_crate", () -> new Block(BlockBehaviour.Properties.ofFullCopy(Blocks.OAK_PLANKS).strength(2.0F, 3.0F).sound(SoundType.WOOD)));
     public static final DeferredBlock<Block> neutronium_hay_bale = itemBlock("neutronium_hay_bale", () -> new HayBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.HAY_BLOCK)));
 
-    public static final DeferredBlock<Block> infinity_cabinet = itemBlock("infinity_cabinet", () -> new InfinityCabinetBlock(BlockBehaviour.Properties.of().strength(2.5F,2000F).sound(SoundType.GLASS)), ModRarities.LEGEND.getValue());
-    public static final DeferredBlock<Block> infinity_basket = itemBlock("infinity_basket", () -> new InfinityBasketBlock(BlockBehaviour.Properties.of().strength(2.5F,2000F).sound(SoundType.GLASS)), ModRarities.COSMIC.getValue());
+    public static final DeferredBlock<Block> infinity_cabinet = itemBlock("infinity_cabinet", () -> new InfinityCabinetBlock(BlockBehaviour.Properties.of().strength(2.5F,2000F).sound(SoundType.GLASS)),new Item.Properties().rarity(ModRarities.LEGEND.getValue()));
+    public static final DeferredBlock<Block> infinity_basket = itemBlock("infinity_basket", () -> new InfinityBasketBlock(BlockBehaviour.Properties.of().strength(2.5F,2000F).sound(SoundType.GLASS)), new Item.Properties().rarity(ModRarities.COSMIC.getValue()));
 
-    public static final DeferredBlock<Block> endest_pie = itemBlock("endest_pie", () -> new PieBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE), ADItems.slice_endest_pie), ModRarities.COSMIC.getValue());
-    public static final DeferredBlock<Block> star_pie = itemBlock("star_pie", () -> new PieBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE), ADItems.slice_star_pie), ModRarities.COSMIC.getValue());
+    public static final DeferredBlock<Block> endest_pie = itemBlock("endest_pie", () -> new PieBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE), ADItems.slice_endest_pie),new Item.Properties().rarity(ModRarities.COSMIC.getValue()));
+    public static final DeferredBlock<Block> star_pie = itemBlock("star_pie", () -> new PieBlock(BlockBehaviour.Properties.ofFullCopy(Blocks.CAKE), ADItems.slice_star_pie), new Item.Properties().rarity(ModRarities.COSMIC.getValue()));
 
 
     private static <T extends Block> DeferredBlock<T> itemBlock(String name, Supplier<T> block){
@@ -55,16 +61,18 @@ public class ADBlocks {
         itemBlock(name, toReturn);
         return toReturn;
     }
-    private static <T extends Block> DeferredBlock<T> itemBlock(String name, Supplier<T> block, Rarity rarity) {
+
+
+    private static <T extends Block> DeferredBlock<T> itemBlock(String name, Supplier<T> block, Item.Properties properties) {
         DeferredBlock<T> toReturn = BLOCKS.register(name, block);
-        itemBlock(name, toReturn, rarity);
+        itemBlock(name, toReturn, properties);
         return toReturn;
     }
 
-    private static <T extends Block> void itemBlock(String name, DeferredBlock<T> block, Rarity rarity) {
-        ADItems.ITEMS.register(name, () -> new BlockItem(block.get(), new Item.Properties().rarity(rarity)));
-    }
 
+    private static <T extends Block> void itemBlock(String name, DeferredBlock<T> block, Item.Properties properties) {
+        ADItems.ITEMS.register(name, () -> new BlockItem(block.get(), properties));
+    }
 
     private static <T extends Block> void itemBlock(String name, DeferredBlock<T> block){
         ADItems.ITEMS.register(name,()-> new BlockItem(block.get(),new Item.Properties()));

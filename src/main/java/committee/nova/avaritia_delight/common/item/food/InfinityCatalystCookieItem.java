@@ -43,7 +43,6 @@ public class InfinityCatalystCookieItem extends Item {
             });
         }
 
-        stack.consume(1, livingEntity);
 
         return stack;
     }
